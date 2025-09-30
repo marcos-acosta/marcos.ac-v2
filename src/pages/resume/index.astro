@@ -1,0 +1,24 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <main>
+      <Header />
+      <p>This is where I would put my resume...</p>
+    </main>
+  </body>
+</html>
+
+<style>
+  main {
+    width: 960px;
+  }
+</style>

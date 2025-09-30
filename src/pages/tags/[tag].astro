@@ -3,10 +3,26 @@ import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { extractTags } from "./../../util";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => extractTags(post.data.tags)).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      extractTags(post.data.tags).includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,8 +33,7 @@ const posts = (await getCollection("blog")).sort(
   <body>
     <main>
       <Header />
-      <h3>Blog</h3>
-      <p>Quick thing about my blog, what it is, etc.</p>
+      <h3>Posts tagged with "{tag}"</h3>
       <p>
         <ul>
           {
@@ -31,7 +46,7 @@ const posts = (await getCollection("blog")).sort(
                   <div>{post.data.description}</div>
                   <div>
                     {post.data.tags.split(",").map((t) => (
-                      <a href={`/tags/${t}`}>{`#${t}`}</a>
+                      <div>{`#${t}`}</div>
                     ))}
                   </div>
                 </div>
