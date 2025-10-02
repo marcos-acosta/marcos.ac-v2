@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TagContainer from "./TagContainer.astro";
+
+type Props = CollectionEntry<"blog">;
+
+const { title, description, pubDate, tags } = Astro.props.data;
+const id = Astro.props.id;
+---
+
+<div class="blogPreviewContainer">
+  <a href={`/blog/${id}/`} class="postLink">
+    <div class="titleContainer">
+      <div class="title">
+        {title}
+      </div>
+      <div>•</div>
+      <div class="yearPub">
+        {pubDate.getFullYear()}
+      </div>
+    </div>
+  </a>
+  <div class="description">{description}</div>
+  <div>
+    <TagContainer tagsString={tags} />
+  </div>
+</div>
+
+<style>
+  a.postLink {
+    text-decoration: none;
+    color: var(--black);
+  }
+
+  .titleContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 1.25rem;
+  }
+
+  .title {
+    font-weight: bold;
+    color: var(--accent);
+  }
+
+  .yearPub {
+    font-style: italic;
+  }
+
+  .description {
+    color: var(--gray);
+  }
+
+  .blogPreviewContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+</style>

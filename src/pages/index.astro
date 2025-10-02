@@ -3,6 +3,9 @@ import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import PageLayout from "../layouts/PageLayout.astro";
+import PageContent from "../layouts/PageContent.astro";
+import PostPreviewList from "../components/PostPreviewList.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -15,87 +18,67 @@ const posts = (await getCollection("blog")).sort(
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main>
+    <PageLayout>
       <Header />
-      <h3 class="welcome">Welcome!</h3>
-      <p>
-        Hello! I'm Marcos&mdash; I'm a software engineer by trade (and aspiring
-        polymath all the time) based in Brooklyn. I currently work on the Play
-        Store at <a href="https://bing.com" target="_blank" rel="noreferrer"
-          >Google</a
-        >, where I help build <a
-          href="https://techcrunch.com/2024/07/24/google-play-launches-curated-spaces-feature-manga-anime/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          features</a
-        > related to app recommendations. Some of my regular activities in the city
-        include jamming, hanging out in <a
-          href="https://www.instagram.com/creativecodingnyc/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          collaborative</a
-        >{" "}<a
-          href="https://sideprojectsaturday.com/"
-          target="_blank"
-          rel="noreferrer">spaces</a
-        >,
-        <a
-          href="https://www.tiktok.com/@worlds.worst.detective"
-          target="_blank"
-          rel="noreferrer"
-        >
-          reviewing subway stations</a
-        >, and generally trying to keep up with all the <a
-          href="https://wikigamejam.org/"
-          target="_blank"
-          rel="noreferrer">nerdy</a
-        >
-        <a
-          href="https://www.wonderville.nyc/events/wordhack-july-2024"
-          target="_blank"
-          rel="noreferrer">events</a
-        > NYC has to offer.
-      </p>
-      <p>
-        If you'd like to reach me, you can find my contact <a href="/resume"
-          >here</a
-        >. Otherwise, feel free to read through anything here that catches your
-        attention.
-      </p>
-      <h3>Recent posts</h3>
-      <p>
-        <a href="/blog">See all</a>
-        <ul>
-          {
-            posts.slice(0, 3).map((post) => (
-              <li>
-                <div>
-                  <a href={`/blog/${post.id}/`}>
-                    {post.data.title} ({post.data.pubDate.getFullYear()})
-                  </a>
-                  <div>{post.data.description}</div>
-                  <div>
-                    {post.data.tags.split(",").map((t) => (
-                      <div>{`#${t}`}</div>
-                    ))}
-                  </div>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </p>
-    </main>
+      <PageContent>
+        <section>
+          <h3 class="welcome">Welcome!</h3>
+          <p>
+            I'm Marcos&mdash; I'm a software engineer by trade (and aspiring
+            polymath all the time) based in Brooklyn. I graduated from Harvey
+            Mudd College with a CS degree in 2023 and currently work on the Play
+            Store at <a href="https://bing.com" target="_blank" rel="noreferrer"
+              >Google</a
+            >, where I help build <a
+              href="https://techcrunch.com/2024/07/24/google-play-launches-curated-spaces-feature-manga-anime/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              features</a
+            > related to app recommendations. Some of my regular activities in the
+            city include jamming, hanging out in <a
+              href="https://www.instagram.com/creativecodingnyc/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              collaborative</a
+            >{" "}<a
+              href="https://sideprojectsaturday.com/"
+              target="_blank"
+              rel="noreferrer">spaces</a
+            >,
+            <a
+              href="https://www.tiktok.com/@worlds.worst.detective"
+              target="_blank"
+              rel="noreferrer"
+            >
+              reviewing subway stations</a
+            >, and generally trying to keep up with all the <a
+              href="https://wikigamejam.org/"
+              target="_blank"
+              rel="noreferrer">nerdy</a
+            >
+            <a
+              href="https://www.wonderville.nyc/events/wordhack-july-2024"
+              target="_blank"
+              rel="noreferrer">events</a
+            > NYC has to offer.
+          </p>
+          <p>
+            If you'd like to reach me, you can find my contact <a href="/resume"
+              >here</a
+            >. Otherwise, feel free to read through anything here that catches
+            your attention.
+          </p>
+        </section>
+        <section>
+          <h3>Recent posts</h3>
+          <p>
+            <PostPreviewList posts={posts.slice(0, 3)} />
+          </p>
+          <a href="/blog">See all⤼</a>
+        </section>
+      </PageContent>
+    </PageLayout>
   </body>
 </html>
-
-<style>
-  main {
-    width: 620px;
-  }
-  .welcome {
-    margin-top: 20px;
-  }
-</style>

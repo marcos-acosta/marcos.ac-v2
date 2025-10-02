@@ -8,14 +8,18 @@
 	--accent: #d39313;
 	--accent-dark: #000d8a;
 	--black: rgb(25, 19, 15);
-	--gray: rgb(138, 133, 126);
-	--gray-dark: rgb(84, 81, 78);
+	--gray: rgb(123, 119, 114);
+	--gray-dark: rgb(92, 88, 83);
 	--gray-light: 229, 233, 240;
 	--white: #f9f7f2;
 	--gray-gradient: rgba(var(--gray-light), 50%), var(--white);
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
 		rgba(var(--gray), 33%);
+	--tag-green: rgb(63, 129, 77, 0.15);
+	--tag-blue: rgb(62, 97, 154, 0.15);
+	--tag-red: rgb(188, 76, 74, 0.15);
+	--tag-yellow: rgb(194, 168, 49, 0.15);
 }
 @font-face {
 	font-family: "Atkinson";
@@ -93,6 +97,8 @@ b {
 }
 a {
 	color: var(--gray);
+	transition-property: color;
+	transition-duration: 0.25s;
 }
 a:hover {
 	color: var(--gray-dark);

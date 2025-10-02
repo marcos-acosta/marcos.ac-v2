@@ -2,8 +2,12 @@
 import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
+import TagContainer from "../../components/Tag.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 import { extractTags } from "./../../util";
+import PageLayout from "../../layouts/PageLayout.astro";
+import PageContent from "../../layouts/PageContent.astro";
+import PostPreviewList from "../../components/PostPreviewList.astro";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
@@ -31,36 +35,14 @@ const { posts } = Astro.props;
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main>
+    <PageLayout>
       <Header />
-      <h3>Posts tagged with "{tag}"</h3>
-      <p>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <div>
-                  <a href={`/blog/${post.id}/`}>
-                    {post.data.title} ({post.data.pubDate.getFullYear()})
-                  </a>
-                  <div>{post.data.description}</div>
-                  <div>
-                    {post.data.tags.split(",").map((t) => (
-                      <div>{`#${t}`}</div>
-                    ))}
-                  </div>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </p>
-    </main>
+      <PageContent>
+        <h3>Posts tagged with <TagContainer tagName={tag} /></h3>
+        <p>
+          <PostPreviewList posts={posts} />
+        </p>
+      </PageContent>
+    </PageLayout>
   </body>
 </html>
-
-<style>
-  main {
-    width: 960px;
-  }
-</style>

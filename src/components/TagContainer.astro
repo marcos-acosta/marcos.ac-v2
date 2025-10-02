@@ -1,0 +1,24 @@
+---
+import { extractTags } from "../util";
+import Tag from "./Tag.astro";
+
+interface Props {
+  tagsString: string;
+}
+
+const { tagsString } = Astro.props;
+
+const tags = extractTags(tagsString);
+---
+
+<div class="tagContainer">
+  {tags.map((tagName) => <Tag tagName={tagName} />)}
+</div>
+
+<style>
+  .tagContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+</style>

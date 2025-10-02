@@ -3,6 +3,9 @@ import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import PageLayout from "../../layouts/PageLayout.astro";
+import PageContent from "../../layouts/PageContent.astro";
+import PostPreviewList from "../../components/PostPreviewList.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -15,37 +18,19 @@ const posts = (await getCollection("blog")).sort(
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main>
+    <PageLayout>
       <Header />
-      <h3>Blog</h3>
-      <p>Quick thing about my blog, what it is, etc.</p>
-      <p>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <div>
-                  <a href={`/blog/${post.id}/`}>
-                    {post.data.title} ({post.data.pubDate.getFullYear()})
-                  </a>
-                  <div>{post.data.description}</div>
-                  <div>
-                    {post.data.tags.split(",").map((t) => (
-                      <a href={`/tags/${t}`}>{`#${t}`}</a>
-                    ))}
-                  </div>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </p>
-    </main>
+      <PageContent>
+        <h3>Blog</h3>
+        <p>
+          I use this space to jot down anything that's on my mind, from
+          long-form essays and project write-ups to more digital-garden-y notes
+          and reflections.
+        </p>
+        <p>
+          <PostPreviewList posts={posts} />
+        </p>
+      </PageContent>
+    </PageLayout>
   </body>
 </html>
-
-<style>
-  main {
-    width: 960px;
-  }
-</style>

@@ -2,6 +2,8 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import PageContent from "../../layouts/PageContent.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
 ---
 
 <!doctype html>
@@ -10,15 +12,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main>
+    <PageLayout>
       <Header />
-      <p>This is where I would put my resume...</p>
-    </main>
+      <PageContent>
+        <h3>Resume</h3>
+        <p>
+          I plan on inlining my resume here, but until I do, here's a <a
+            href="https://drive.google.com/file/d/1QmMjjkHRTt4EP4ERHMXp-x309Yi2FcrL/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer">link</a
+          >.
+        </p>
+      </PageContent>
+    </PageLayout>
   </body>
 </html>
-
-<style>
-  main {
-    width: 960px;
-  }
-</style>
