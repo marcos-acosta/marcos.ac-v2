@@ -1,11 +1,21 @@
 ---
-import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header>
-  <a href="/">Marcos Acosta</a>
-  <a href="/blog">Blog</a>
-  <a href="/tags/project">Projects</a>
-  <a href="/resume">Resume</a>
+<header class="header">
+  <HeaderLink href="/">MARCOS ACOSTA</HeaderLink>
+  <div class="headerDot">•</div>
+  <HeaderLink href="/blog">Blog</HeaderLink>
+  <div class="headerDot">•</div>
+  <HeaderLink href="/tags/projects">Projects</HeaderLink>
+  <div class="headerDot">•</div>
+  <HeaderLink href="/resume">Resume</HeaderLink>
 </header>
+
+<style>
+  .header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+</style>

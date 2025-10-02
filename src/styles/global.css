@@ -5,13 +5,13 @@
  */
 
 :root {
-	--accent: #2337ff;
+	--accent: #d39313;
 	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
+	--black: rgb(25, 19, 15);
+	--gray: rgb(138, 133, 126);
+	--gray-dark: rgb(84, 81, 78);
 	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--white: #fff;
+	--white: #f9f7f2;
 	--gray-gradient: rgba(var(--gray-light), 50%), var(--white);
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
@@ -31,8 +31,22 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+	font-family: "Karla";
+	src: url("/fonts/Karla-VariableFont_wght.ttf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Karla";
+	src: url("/fonts/Karla-Italic-VariableFont_wght.ttf") format("opentype");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
 body {
-	font-family: "Arial", sans-serif;
+	font-family: "Karla", sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -40,7 +54,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
+	font-size: 18px;
 }
 main {
 	width: 720px;
@@ -78,16 +92,16 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
+	color: var(--gray);
 }
 a:hover {
-	color: var(--accent);
+	color: var(--gray-dark);
 }
 p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 textarea {
 	width: 100%;
