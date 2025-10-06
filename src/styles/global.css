@@ -10,7 +10,7 @@
 	--black: rgb(25, 19, 15);
 	--gray: rgb(123, 119, 114);
 	--gray-dark: rgb(92, 88, 83);
-	--gray-light: 229, 233, 240;
+	--gray-light: rgb(237, 230, 223);
 	--white: #f9f7f2;
 	--gray-gradient: rgba(var(--gray-light), 50%), var(--white);
 	--box-shadow:
@@ -22,20 +22,6 @@
 	--tag-yellow: rgb(194, 168, 49, 0.15);
 }
 @font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
 	font-family: "Karla";
 	src: url("/fonts/Karla-VariableFont_wght.ttf") format("opentype");
 	font-weight: 400;
@@ -45,6 +31,20 @@
 @font-face {
 	font-family: "Karla";
 	src: url("/fonts/Karla-Italic-VariableFont_wght.ttf") format("opentype");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Sometype";
+	src: url("/fonts/SometypeMono-VariableFont_wght.ttf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Sometype";
+	src: url("/fonts/SometypeMono-Italic-VariableFont_wght.ttf") format("opentype");
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
@@ -123,18 +123,24 @@ img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 8px;
+	max-height: 500px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	background-color: var(--gray-light);
 	border-radius: 2px;
+	font-family: "Sometype"
 }
 pre {
-	padding: 1.5em;
+	padding: 0.5em 0.5em 0.5em 1em;
 	border-radius: 8px;
 }
 pre > code {
 	all: unset;
+	font-family: "Sometype"
 }
 blockquote {
 	border-left: 4px solid var(--accent);

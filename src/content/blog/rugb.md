@@ -2,6 +2,7 @@
 title: 'RUGB'
 description: "The color-guessing game that made me realize I don't know what color is"
 pubDate: 'Jul 08 2022'
+updatedDate: 'Oct 03 2025'
 heroImage: '../../assets/blog-placeholder-3.jpg'
 tags: 'projects,games,web-dev'
 ---
@@ -21,7 +22,10 @@ By far and away, the most intricate part of this project was settling on a fair 
 Naturally, I initially chose good ol' Euclidian distance as my scoring metric, where the color space can be thought of as a cube with axes for red, green, and blue. The final score would be based on the distance between the predicted and actual coordinates within that cube. Similarly to Geoguessr, I also applied an exponential to make accuracy more important closer to the target color.
 
 ```js
-distance = sqrt((r_actual - r_pred)^2 + (g_actual - g_pred)^2 + (b_actual - b_pred)^2)
+distance = sqrt(
+  (r_actual - r_pred)^2 +
+  (g_actual - g_pred)^2 +
+  (b_actual - b_pred)^2)
 score = round(max(0, 100 - (distance / A)^B))
 ```
 
@@ -92,22 +96,22 @@ I slated these ideas for later, since I still need to graduate, and my head was 
 
 #### On "almost making it"
 
-About a year later, I was telling a friend about RUGB and he seemed to already be familiar with it. He showed me this fellow named [Jared Cross](https://www.instagram.com/jared__cross) who found his niche as a color guessing expert, mostly on a hex-guessing site called [Hexcodle](https://hexcodle.com/) which was published a year after RUGB. The very next day, a different friend sent me a link to *another* recent hex-guessing game which was generation a lot of attention online[^2]. I couldn't help beating myself up for not implementing the ideas I had, and for not attempting to share my work online. _If only I had_, I thought, _I might have had my big break_.  That was the first time I felt that specific feeling; I'd never been concerned about the mythical "big break" prior to making this silly little color-guessing game.
+About a year later, I was telling a friend about RUGB. To my surprise, he seemed to already be familiar with it. He showed me this fellow named [Jared Cross](https://www.instagram.com/jared__cross) who found his niche as a color guessing expert. But Jared wasn't on RUGB, he used a hex-guessing site called [Hexcodle](https://hexcodle.com/) which was published a year after RUGB. The very next day, a different friend sent me a link to *another* recent hex-guessing game which was generating a lot of buzz online[^2]. I couldn't help beating myself up for not implementing the ideas I had, and for not attempting to share my work online. _If only I had_, I thought, _I might have had my big break_.  That was the first time I felt that specific feeling; I'd never been concerned about the mythical "big break" prior to making this silly little color-guessing game.
 
-Looking back with even *more* hindsight now, I can see that my negative reaction was overblown. Since then, I've had a pretty modest success when my [CSS game](https://csshell.com/) hit the front page of Hacker News and was [live-streamed](https://www.youtube.com/watch?v=z6OQO5SwUhU) by CSS guru Kevin Powell. And guess what:
+Looking back with even *more* hindsight now, I can see that my negative reaction was overblown. Since then, I've had a small moment in the spotlight when my [CSS game](https://csshell.com/) hit the front page of Hacker News and was [live-streamed](https://www.youtube.com/watch?v=z6OQO5SwUhU) by CSS guru Kevin Powell. And guess what:
 
 1. Watching RUGB's brief popularity on my college campus was more personally rewarding
 2. Modest internet success or the lack thereof apparently had no effect on my desire to keep making fun websites (and get better at it)
 
-Plus, the narrative of "I could have done that" or "I did that first" often overlooks some crucial details. Like, people who lament not having come up with Wordle first (such a simple idea!) might not know that before Wordle, [Josh](https://www.powerlanguage.co.uk/) had already honed his craft of simple-yet-addictive games with the viral Reddit social experiments [r/place](https://en.wikipedia.org/wiki/R/place) and [the button](https://en.wikipedia.org/wiki/The_Button_(Reddit)).
+Plus, the narrative of "I could have done that" or "I did that first" often overlooks some crucial details. As an example, people who lament not having come up with Wordle first (such a simple idea!) might not know that before Wordle, [Josh](https://www.powerlanguage.co.uk/) had already honed his craft of developing simple-yet-addictive games with the viral Reddit social experiments [r/place](https://en.wikipedia.org/wiki/R/place) and [the button](https://en.wikipedia.org/wiki/The_Button_(Reddit)).
 
 More recently, I've seen people react negatively to Blake Anderson's sensational [Horse Race Tests](https://x.com/snakesandrews/status/1908942786549998058), bewildered by how such a seemingly simple and crude game with no direct player interaction could gain such a large following. Having seen Blake give a talk at [Wonderville](https://www.wonderville.nyc/events/wordhack-july-2024) two years earlier, I can say with absolute certainty that Blake has been honing his craft for ages, and if anything, his virality is overdue.
 
 As another example, Harvest Moon came out before Stardew Valley and yet never saw the latter game's level of success despite being a nearly identical farm sim game. The core game mechanics might be the same, but people care about e.g. the fact that Stardew Valley allows same-sex marriage, unlike Harvest Moon. Details like that matter.
 
-That's not to entirely discount the role of luck, though (see: Darius Kazemi's brilliant [How I Won the Lottery](https://www.youtube.com/watch?v=l_F9jxsfGCw) talk). Actually, luck is just a different way of looking at the same thing. When you have a system as chaotic as millions of individuals who may or may not see or play or share your game, it's fair to talk about randomness, although certain things will seem deterministic (for example, if your game can't be played on a phone, it won't be as popular).
+That's not to entirely discount the role of luck, though (see: Darius Kazemi's [How I Won the Lottery](https://www.youtube.com/watch?v=l_F9jxsfGCw) talk). Actually, luck is just a different way of looking at the same thing. When you have a system as chaotic as millions of individuals who may or may not see or play or share your game, it's fair to talk about randomness, although certain patterns will seem deterministic (for example, if your game can't be played on a phone, it won't be as popular).
 
 Thus ends my philosophical aside. More to the point: I had a blast making RUGB and, in the process, learned to temper my own unproductive desire for broader success in favor of enjoying local success. Because, in the memorable words of Robin Sloan, [an app can be a home-cooked meal](https://www.robinsloan.com/notes/home-cooked-app/).
 
 [^1]: To be honest, I'm not sure that any of the top 9 scores are legitimate, which would imply that Albany in 10th place may still have the top legitimate score, two years later.
-[^2]: It was called Colorrush by [luke](https://github.com/bvvst), but I can't find it anywhere now. Strange, because it looked like a lot of effort went into its UI.
+[^2]: It was called Colorrush by [luke](https://github.com/bvvst), but I can't find it anywhere now. Strange, because I remember it seemed very high-quality.

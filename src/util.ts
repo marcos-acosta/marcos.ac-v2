@@ -21,3 +21,11 @@ export const extractTags = (tagsString: string) =>
 
 export const tagNameToColor = (tagName: string) =>
   COLORS[Math.abs(hash(`${tagName}`)) % COLORS.length];
+
+export const formatDate = (date: Date) => {
+  return date.toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+};

@@ -3,9 +3,10 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import { extractTags } from "../util";
 import PageLayout from "./PageLayout.astro";
 import PageContent from "./PageContent.astro";
+import TagContainer from "../components/TagContainer.astro";
+import { formatDate } from "./../util";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -32,20 +33,20 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
           <div class="prose">
             <div class="title">
               <h1>{title}</h1>
-              <div class="tags">
-                {extractTags(tags).map((t) => <span>#{t}</span>)}
-              </div>
               <div class="date">
                 <div class="publishedDate">
-                  Published on {pubDate.toLocaleDateString()}
+                  Written {formatDate(pubDate)}
                 </div>
                 {
                   updatedDate && (
                     <div class="updatedDate">
-                      Updated on {updatedDate.toLocaleDateString()}
+                      Updated {formatDate(updatedDate)}
                     </div>
                   )
                 }
+              </div>
+              <div class="tags">
+                <TagContainer tagsString={tags} />
               </div>
               <hr />
             </div>
@@ -71,23 +72,19 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
     border-radius: 12px;
     box-shadow: var(--box-shadow);
   }
+  .tags {
+    margin-bottom: 0.5em;
+  }
   .prose {
-    max-width: calc(100% - 2em);
-    margin: auto;
-    padding: 1em;
-    color: rgb(var(--gray-dark));
+    color: var(--black);
   }
   .title {
-    margin-bottom: 1em;
-    padding: 1em 0;
+    margin-top: 1em;
     line-height: 1;
-  }
-  .title h1 {
-    margin: 0 0 0.5em 0;
   }
   .date {
     margin-bottom: 0.5em;
-    color: rgb(var(--gray));
+    color: var(--gray);
   }
   .last-updated-on {
     font-style: italic;
