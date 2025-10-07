@@ -67,7 +67,7 @@ dE76 = sqrt(
   (b_actual - b_pred)^2)
 ```
 
-While LAB is generally _more_ percetually uniform than RGB, it's still not perfect. Just take a look at the pairs of colors below:
+While LAB is generally _more_ perceptually uniform than RGB, it's still not perfect. Just take a look at the pairs of colors below:
 
 ![Two pairs of colors; the pair on the left are similar reds, while the pair on the right include a desaturated blue and a desaturated pink](/blog/rugb/color-diff-lab-76.png)
 
@@ -141,5 +141,5 @@ Thus ends my philosophical aside. More to the point: I had a blast making RUGB a
 ![A text message from a friend: "Fuck your game"](/blog/rugb/f-your-game.png)
 
 [^3]: Technically, it should be L\*a\*b\*, and it should be `L*` instead of `L`, etc., but there's no need to be pedantic here.
-[^1]: To be honest, I'm not sure that any of the top 9 scores are legitimate, which would imply that Albany in 10th place may still have the top legitimate score, two years later.
+[^1]: To be honest, I'm not sure that any of the top 9 scores are legitimate, which would imply that albs in 10th place may still have the top legitimate score, two years later.
 [^2]: It was called Colorrush by [luke](https://github.com/bvvst), but I can't find it anywhere now. Strange, because I remember it seemed very high-quality.
