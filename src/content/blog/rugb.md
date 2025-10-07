@@ -1,5 +1,5 @@
 ---
-title: 'RUGB'
+title: 'Making RUGB'
 description: "The color-guessing game that made me realize I don't know what color is"
 pubDate: 'Jul 08 2022'
 updatedDate: 'Oct 03 2025'
