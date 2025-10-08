@@ -1,13 +1,13 @@
 ---
 title: 'Making RUGB'
 description: "The color-guessing game that made me realize I don't know what color is"
-pubDate: 'Jul 08 2022'
+pubDate: 'Oct 01 2022'
 updatedDate: 'Oct 03 2025'
 heroImage: '../../assets/rugb.png'
 tags: 'projects,games,web-dev'
 ---
 
-_TL;DR: [https://rugb.app](https://rugb.app)_
+_TL;DR: [rugb.app](https://rugb.app)_
 
 It started when a friend showed me [this video](https://www.youtube.com/shorts/W4Rebo3aEkY) of Tom Lum guessing the RGB value of his friend's nail color with astonishing accuracy. _Now this_, I thought, _is a useless skill worth having_. I searched the web for a site where I could practice guessing RGB values in a gamified way but didn't find anything. So, as is always the case when a nerd can't find the exact thing they want, I decided to make it.
 
