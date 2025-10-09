@@ -17,11 +17,11 @@ With that in mind, [Geoguessr](https://www.geoguessr.com/) actually seemed like 
 
 From the start, having a smooth and enjoyable UX was a priority. Since the game has only one mechanic (i.e. input numbers and submit), I figured it should be done well. I went with a minimalist approach where the target color is shown in the background and the RGB input is the central element. I also added a few convenience features, like automatically tabbing to the next value input after typing a 3-digit number (since RGB values can't exceed 255) and auto-selecting an invalid RGB value. On submission, the predicted color is shown directly above the target color to give the player crucial visual feedback.
 
-![A screenshot from RUGB where I guessed the wrong shade of purple](/blog/rugb/feedback.png)
+![A screenshot from RUGB where I guessed the wrong shade of purple](../../assets/rugb/feedback.png)
 
 Finally, in Geoguessr-esque style, I added a summary page so the user could see how they performed across all ten rounds at a glance.
 
-![A screenshot from RUGB with the summary of the actual and predicted color from each round](/blog/rugb/summary.png)
+![A screenshot from RUGB with the summary of the actual and predicted color from each round](../../assets/rugb/summary.png)
 
 ### The color theory rabbit hole
 
@@ -45,7 +45,7 @@ But as I began testing, I noticed that something was off. A guess that looked sp
 
 The main problem is that the RGB color space isn't perceptually uniform. To see what I mean, take a look at the pairs of colors below.
 
-![Two pairs of colors; the pair on the left are near-identical green, while the pair on the right are very clearly different shades of yellow](/blog/rugb/color-diff-rgb.png)
+![Two pairs of colors; the pair on the left are near-identical green, while the pair on the right are very clearly different shades of yellow](../../assets/rugb/color-diff-rgb.png)
 
 If your eyes are anything like mine, the pair of greens on the left look extremely similar, while the colors on the right are obviously different. The two shades of green are `sqrt(40^2 + 10^2 + 50^2) = ~64.8` units apart in RGB color space, assuming a Euclidean geometry. The pair of colors on the right are, surprisingly enough, _also_ 64 units apart! Clearly, Euclidean distance in the RGB color space doesn't align with our perception of color difference.
 
@@ -69,13 +69,13 @@ dE76 = sqrt(
 
 While LAB is generally _more_ perceptually uniform than RGB, it's still not perfect. Just take a look at the pairs of colors below:
 
-![Two pairs of colors; the pair on the left are similar reds, while the pair on the right include a desaturated blue and a desaturated pink](/blog/rugb/color-diff-lab-76.png)
+![Two pairs of colors; the pair on the left are similar reds, while the pair on the right include a desaturated blue and a desaturated pink](../../assets/rugb/color-diff-lab-76.png)
 
 dE76 puts both pairs of colors at `∆E* = 30`, even though the pair on the left are just slightly different shades of red while the pair on the right are straight-up different colors.
 
 In the coming decades, the CIE iterated on their color difference formula, giving rise to dE94 in '94 and dE00 in 2000, each of which improved on its predecessor in terms of aligning the ∆E* metric with its intended interpretation. Taking a glance at the equation for dE00, we see that the Euclidean simplicity of dE76 has been overhauled with some hardcore feature engineering:
 
-![A complex set of formulas](/blog/rugb/dE00.png)
+![A complex set of formulas](../../assets/rugb/dE00.png)
 
 When I swapped out my RGB-based Euclidean distance with LAB-based dE00 function, I found that the scores were much more reasonable.
 
@@ -85,17 +85,17 @@ With the scoring function fixed, the only thing left to do was to pick a name. I
 
 Once the site went live, it started to spread among my friends, and then to their friends as people raced to the top of the leaderboard. This brought me a lot of joy– arguably, a game designer's one hope is that players enjoy the experience of playing it. 
 
-![A composite of photos and text screenshots of friends playing RUGB](/blog/rugb/composite.png)
+![A composite of photos and text screenshots of friends playing RUGB](../../assets/rugb/composite.png)
 
 Since there are ten rounds with a maximum 100 points per round, the maximum theoretical score is 1,000. Within a day, the leaderboard was filled with scores in the 800s. One of our [beloved CS professors](https://www.ratemyprofessors.com/professor/144363) managed to top the leaderboard in one try with a score of 870.
 
-![A screenshot of a group chat in which I announce Prof Dodds's top score](/blog/rugb/dodds.jpg)
+![A screenshot of a group chat in which I announce Prof Dodds's top score](../../assets/rugb/dodds.jpg)
 
 By the next day, the bar had been raised to 939, averaging an impressive 93.9 points per round. As the leaderboard became more cutthroat, I noticed that players intent on making the leaderboard would simply refresh the page after making a particularly bad guess to avoid wasting time on a bad run. It also highlighted an interesting fact of RGB guessing: certain colors *are* easier to identify than others (we learned that shades of yellow/brown were particularly difficult), so part of the strategy for getting a high score was just playing enough times for the RNG to produce an "easy" run.
 
 As time went on, the top scores continued to creep higher into the 900s. By the time I graduated, the high score was an astounding 946, and I was no longer on the leaderboard, which to me is a sign of success.
 
-![Albany celebrates reaching the top of the leaderboard](/blog/rugb/albany-success.jpg)
+![Albany celebrates reaching the top of the leaderboard](../../assets/rugb/albany-success.jpg)
 
 ### Reflection
 
@@ -103,15 +103,15 @@ Looking back a few years later, making RUGB and watching its brief moment in the
 
 At the time, I had a number of ideas for how I world improve RUGB. For one, there was the low-hanging fruit of making the page less narrow-screen-hostile. Shown below is an image of a displeased user.
 
-![A friend is visibly upset that RUGB doesn't display on narrow windows](/blog/rugb/angry.png)
+![A friend is visibly upset that RUGB doesn't display on narrow windows](../../assets/rugb/angry.png)
 
 For another, there was the handling of cheaters: it's hilariously easy to cheat on RUGB, since the answer is literally in your browser.
 
-![A screenshot of the developer console, showing the target color in plain sight](/blog/rugb/color-in-browser.png)
+![A screenshot of the developer console, showing the target color in plain sight](../../assets/rugb/color-in-browser.png)
 
 Case in point: I checked the leaderboard today and noticed that somebody has generously self-identified themself as a cheater.[^1]
 
-![A screenshot of the leaderboard, where a user with the username "cheater" earned a perfect 1000 points](/blog/rugb/cheater.png)
+![A screenshot of the leaderboard, where a user with the username "cheater" earned a perfect 1000 points](../../assets/rugb/cheater.png)
 
 Practically, there's very little that can be done about that, since banning a perfect score seems excessive. I did, though, get a creative suggestion to catch players digging for low-hanging fruit in the browser's inspector: Apply an overlay to the background color with some opacity, and then in the application logic, calculate the resulting "combined" color and treat it as the true target color.
 
@@ -138,7 +138,7 @@ That's not to entirely discount the role of luck, though (see: Darius Kazemi's [
 
 Thus ends my philosophical aside. More to the point: I had a blast making RUGB and, in the process, learned to temper my own unproductive, impatient desire for broader success. Because, in the memorable words of Robin Sloan, [an app can be a home-cooked meal](https://www.robinsloan.com/notes/home-cooked-app/).
 
-![A text message from a friend: "Fuck your game"](/blog/rugb/f-your-game.png)
+![A text message from a friend: "Fuck your game"](../../assets/rugb/f-your-game.png)
 
 [^3]: Technically, it should be L\*a\*b\*, and it should be `L*` instead of `L`, etc., but there's no need to be pedantic here.
 [^1]: To be honest, I'm not sure that any of the top 9 scores are legitimate, which would imply that albs in 10th place may still have the top legitimate score, two years later.

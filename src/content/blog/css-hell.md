@@ -23,11 +23,11 @@ I knew I wanted CSS Hell to be a series of puzzles that relied on increasingly d
 
 Taking the first level as an example, we'd see that the "peg" (filled-in red circle) has a budget of one property. If we were to click on the "hole" (dotted red circle), we would see that it's locked i.e. doesn't accept any additional properties. In the screenshot below, I gave the peg a `rotate` value of `90deg`.
 
-![A screenshot of the first level of CSS Hell](/blog/csshell/level-1.png)
+![A screenshot of the first level of CSS Hell](../../assets/csshell/level-1.png)
 
 This level can be solved by simply adding some `margin-left` to the peg. As my play-tester (and also first-time CSS user) [Albany](https://albanyblackburn.com) discovered, `padding` is also a valid approach. In general, every level could be solved in more than one way, which is part of the fun.
 
-![Using padding-left to make the peg wide enough to touch the hole](/blog/csshell/level-1-padding.png)
+![Using padding-left to make the peg wide enough to touch the hole](../../assets/csshell/level-1-padding.png)
 
 One interesting challenge I ran into early on was implementing a reliable method of checking whether two DOM elements visually overlap. I could get an element's bounding boxes with `getBoundingClientRect()` (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)), but that would only work if the elements are rectangles. Even if I made the pegs and holes square, this would exclude `rotate` as an allowed CSS property, which I didn't want to do.
 
@@ -98,15 +98,15 @@ With these rules in place, I could get to the most fun part: designing and play-
 
 The joy of discovering the absolute mania of CSS:
 
-![Text message from Albany: "I literally have ZERO clue what I'm doing, this is so fun"](/blog/csshell/zero-clue.jpg)
+![Text message from Albany: "I literally have ZERO clue what I'm doing, this is so fun"](../../assets/csshell/zero-clue.jpg)
 
 ...and the dismay of realizing how diabolical it can get:
 
-![Text message: "Me: Let me know if you want a small pointer Albany: I think I'm gonna need it Me: <solution censored> Albany: You are insane"](/blog/csshell/you-are-insane.png)
+![Text message: "Me: Let me know if you want a small pointer Albany: I think I'm gonna need it Me: <solution censored> Albany: You are insane"](../../assets/csshell/you-are-insane.png)
 
 After finishing all 15 levels and adding a few birthday-specific elements, the game was finally ready to launch to its intended target audience of exactly one person. At 2:17 AM on June 24th, I tossed CSS Hell onto a public domain and sent it over to Anshul. After a couple days of frustration, breakthroughs, and occasional troubleshooting, Anshul paid me the highest compliment I could have expected:
 
-![Text message: "Anshul: this is quite fun Marcos: Thank you! Anshul: oh fuck Anshul: i mean this is quite funny looking Anshul: i would never have fun CSSing"](/blog/csshell/quite-fun.jpg)
+![Text message: "Anshul: this is quite fun Marcos: Thank you! Anshul: oh fuck Anshul: i mean this is quite funny looking Anshul: i would never have fun CSSing"](../../assets/csshell/quite-fun.jpg)
 
 Along the way, we discovered some snags, like one level that depended on a certain CSS property which was only supported on the absolute latest version of Safari. But after remedying that and a few other bugs, I was left with a surprisingly playable CSS-based puzzle game. As far as I was concerned, this was "mission accomplished".
 
@@ -116,11 +116,11 @@ Two years later, I remembered my old CSS game. I figured I might as well fix a c
 
 A week or so later, I woke up and checked my phone to find that multiple pull requests had been made overnight to the `solutions.md` file in my GitHub repo. Strange. I checked the site analytics and was astonished to see the following:
 
-![Multiple weeks of basically zero traffic, then suddenly exploding to 4k views](/blog/csshell/traffic-spike.png)
+![Multiple weeks of basically zero traffic, then suddenly exploding to 4k views](../../assets/csshell/traffic-spike.png)
 
 On a hunch, I opened Hacker News and confirmed my suspicion: CSS Hell had been posted again, but this time, the stars aligned and it found its way to the front page.
 
-![CSS Hell reaches #16 on Hacker News](/blog/csshell/hacker-news.png)
+![CSS Hell reaches #16 on Hacker News](../../assets/csshell/hacker-news.png)
 
 HN commenters certainly aren't shy about sharing feedback, and boy did I get it. Whenever you share something you're proud of on the internet, there's always one comment that haunts you, and for me, it was this one that coolly pointed out my unedited default website description:
 
@@ -152,15 +152,15 @@ For (3), I realized this was a big design flaw: Although the UI indicates that t
 
 Couldn't have said it better myself, `riggsdk`. I fixed the UI so that this case was properly handled.
 
-![Attempting to overwrite a property yields a warning message](/blog/csshell/overwrite-property.png)
+![Attempting to overwrite a property yields a warning message](../../assets/csshell/overwrite-property.png)
 
 Although the blunt feedback definitely made my game better, I have to admit that I was hoping for a more positive reaction from Hacker News. But a few weeks later, I got this message from my friend Brad:
 
-![A message from a friend: <youtube link> Dude you're virallllll BRO I THINK U BROKE THE INTERNET](/blog/csshell/broke-internet.jpg)
+![A message from a friend: <youtube link> Dude you're virallllll BRO I THINK U BROKE THE INTERNET](../../assets/csshell/broke-internet.jpg)
 
 I hadn't seen Kevin's channel before, but I've since been informed that he's essentially "the CSS guy on YouTube". In other words, the exact target audience for my game. It was simultaneously delightful and nerve-wracking to [watch a CSS master work through my puzzles](https://www.youtube.com/watch?v=z6OQO5SwUhU). Countless times, I wanted to yell *"YOU ALMOST HAD IT!"*
 
-![Meme: Me watching a CSS expert play my CSS game while being unable to offer clarification or respond to any question. Image: STRESS LEVEL: 99%](/blog/csshell/stress-meme.png)
+![Meme: Me watching a CSS expert play my CSS game while being unable to offer clarification or respond to any question. Image: STRESS LEVEL: 99%](../../assets/csshell/stress-meme.png)
 
 Still, Kevin's playthrough felt like a balm for the hypercritical Hacker News response: I could see him generally having a good time getting nerdsniped, and he avoided obvious cheats that went against the spirit of the game. Kevin's video also gave me the perfect footage I needed to make a [frustration-filled supercut](https://bsky.app/profile/marcos.ac/post/3lowlwaionc2p), and it brought to my attention a few _more_ oversights in the game design. For example, there were a few properties that players could use to sneakily circumvent existing position properties, like `(margin|padding)-(block|inline)-(start|end)` and `inset-*`. But thanks to the magic of open source, those issues were [patched by a contributor](https://github.com/marcos-acosta/css-hell/pulls?q=is%3Apr+is%3Aclosed+author%3AHyftar).
 
@@ -170,7 +170,7 @@ Practically overnight, CSS Hell went from having ~30 page views per week to havi
 
 I'll close this out with my favorite message I received from a stranger:
 
-![A screenshot of an email: Just a small message to let you know I enjoyed CSS Hell so, so much. I was in a pickle and my husband send it to me to cheer me up, and it did. Thanks, I loved all the creativity and it made me laugh multiple times!](/blog/csshell/email.jpg)
+![A screenshot of an email: Just a small message to let you know I enjoyed CSS Hell so, so much. I was in a pickle and my husband send it to me to cheer me up, and it did. Thanks, I loved all the creativity and it made me laugh multiple times!](../../assets/csshell/email.jpg)
 
 [^1]: People usually use the term "code monkey" in a [certain way](https://www.urbandictionary.com/define.php?term=code%20monkey), but I think in Anshul's case, he just felt that there was something spiritually primate-like about aligning divs and tuning margins.
 [^2]: As I write this, I seem to remember that I used to have a little "lock" icon to the left of the initial styles. I'm not sure why I got rid of it, because (as I discuss later) it probably would have greatly clarified the situation for new players.

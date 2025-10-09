@@ -9,11 +9,13 @@ interface Props {
 
 <ul class="postPreviewList">
   {
-    Astro.props.posts.map((post) => (
-      <li>
-        <PostPreview {...post} />
-      </li>
-    ))
+    Astro.props.posts
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+      .map((post) => (
+        <li>
+          <PostPreview {...post} />
+        </li>
+      ))
   }
 </ul>
 
