@@ -7,7 +7,7 @@ heroImage: '../../assets/csshell-cover.png'
 tags: 'projects,games,web-dev'
 ---
 
-_TLDR: [csshell.com](https://csshell.com)_
+_Try it yourself! [csshell.com](https://csshell.com)_
 
 ### The context
 

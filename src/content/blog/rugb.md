@@ -7,9 +7,13 @@ heroImage: '../../assets/rugb.png'
 tags: 'projects,games,web-dev'
 ---
 
-_TL;DR: [rugb.app](https://rugb.app)_
+_Try it yourself! [rugb.app](https://rugb.app)_
+
+### The context
 
 It started when a friend showed me [this video](https://www.youtube.com/shorts/W4Rebo3aEkY) of Tom Lum guessing the RGB value of his friend's nail color with astonishing accuracy. _Now this_, I thought, _is a useless skill worth having_. I searched the web for a site where I could practice guessing RGB values in a gamified way but didn't find anything. So, as is always the case when a nerd can't find the exact thing they want, I decided to make it.
+
+### Game design
 
 Even with such a simple premise, it wasn't immediately clear to me how the game mechanic should be framed from a game design perspective. At the time (the year of our Lord 2022), Wordle had been out for a year but was still _the_ minimalist web game, so the "Wordle treatment" was very tempting. In that approach, the player would be shown a color and given _N_ guesses to  guess the exact RGB (or hex) values. Although very zeitgeist-y, I felt like the fun in guessing color codes was just getting good at being in the ballpark, not mechanically trial-and-error-ing to find the exact right values.
 
@@ -142,4 +146,4 @@ Thus ends my philosophical aside. More to the point: I had a blast making RUGB a
 
 [^3]: Technically, it should be L\*a\*b\*, and it should be `L*` instead of `L`, etc., but there's no need to be pedantic here.
 [^1]: To be honest, I'm not sure that any of the top 9 scores are legitimate, which would imply that albs in 10th place may still have the top legitimate score, two years later.
-[^2]: It was called Colorrush by [luke](https://github.com/bvvst), but I can't find it anywhere now. Strange, because I remember it seemed very high-quality.
+[^2]: It was called Colorrush by [luke](https://github.com/bvvst), but I can't find it anywhere now. Strange, because I remember it seemed very high-effort.
