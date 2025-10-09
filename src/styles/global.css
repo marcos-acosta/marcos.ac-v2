@@ -6,6 +6,7 @@
 
 :root {
 	--accent: #d39313;
+	--accent-light: #e9dec7;
 	--accent-dark: #000d8a;
 	--black: rgb(25, 19, 15);
 	--gray: rgb(123, 119, 114);
@@ -145,9 +146,17 @@ pre > code {
 }
 blockquote {
 	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
+	padding: 10px 10px 10px 20px;
 	margin: 0px;
-	font-size: 1.333em;
+	background-color: var(--accent-light);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+blockquote > p:first-child {
+	margin-top: 0;
+}
+blockquote > p:last-child {
+	margin: 0;
 }
 hr {
 	border: none;
