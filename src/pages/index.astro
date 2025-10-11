@@ -80,7 +80,7 @@ const posts = (await getCollection("blog")).sort(
         <section>
           <h3>Recent posts</h3>
           <p>
-            <PostPreviewList posts={posts.slice(0, 3)} />
+            <PostPreviewList posts={posts.slice(0, 5)} />
           </p>
           <a href="/blog">See all⤼</a>
         </section>
