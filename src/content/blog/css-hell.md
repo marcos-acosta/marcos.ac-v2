@@ -5,6 +5,7 @@ pubDate: 'Jul 24 2023'
 updatedDate: 'Oct 07 2025'
 heroImage: '../../assets/csshell/csshell-cover.png'
 tags: 'projects,game-design,web-dev'
+pinned: true
 ---
 
 _Try it yourself! [csshell.com](https://csshell.com)_

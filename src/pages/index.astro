@@ -7,9 +7,11 @@ import PageLayout from "../layouts/PageLayout.astro";
 import PageContent from "../layouts/PageContent.astro";
 import PostPreviewList from "../components/PostPreviewList.astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const allPosts = await getCollection("blog");
+
+const posts = allPosts
+  .filter((p) => p.data.pinned)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const numPostsToShow = 5;
 ---
@@ -80,15 +82,11 @@ const numPostsToShow = 5;
           </p>
         </section>
         <section>
-          <h3>Recent posts</h3>
+          <h3>Pinned posts</h3>
           <p>
-            <PostPreviewList posts={posts.slice(0, numPostsToShow)} />
+            <PostPreviewList posts={posts} />
           </p>
-          {
-            posts.length > numPostsToShow && (
-              <a href="/blog">See all {posts.length} posts⤼</a>
-            )
-          }
+          <a href="/blog">See all {allPosts.length} posts⤼</a>
         </section>
       </PageContent>
     </PageLayout>

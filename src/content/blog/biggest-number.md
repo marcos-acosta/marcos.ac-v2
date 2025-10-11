@@ -4,6 +4,7 @@ description: "The unexpected beauty in the study of very large numbers"
 pubDate: 'Mar 05 2025'
 heroImage: '../../assets/biggest-number/biggest-number-header.png'
 tags: 'essays,math'
+pinned: true
 ---
 
 > Note: This essay is part of a series I was writing called "No Dumb Questions", which was originally published on a separate blog called "World's Worst Detective", hence the character.
