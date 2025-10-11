@@ -3,7 +3,7 @@ title: 'Making RUGB'
 description: "The color-guessing game that made me realize I don't know what color is"
 pubDate: 'Oct 01 2022'
 updatedDate: 'Oct 03 2025'
-heroImage: '../../assets/rugb.png'
+heroImage: '../../assets/rugb/rugb.png'
 tags: 'projects,games,web-dev'
 ---
 
