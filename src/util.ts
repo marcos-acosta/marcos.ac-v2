@@ -1,14 +1,14 @@
 import { COLORS } from "./consts";
 
 const hash = (s: string) => {
-  let arr = s.split("");
+  const arr = s.split("");
   return arr.reduce(
     (hashCode, currentVal) =>
       (hashCode =
         currentVal.charCodeAt(0) +
         (hashCode << 6) +
         (hashCode << 16) -
-        hashCode),
+        hashCode * 19),
     0
   );
 };

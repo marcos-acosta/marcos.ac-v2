@@ -4,4 +4,4 @@
 export const SITE_TITLE = "Marcos Acosta";
 export const SITE_DESCRIPTION = "Marcos's homepage and blog :D";
 
-export const COLORS = ["red", "green", "blue", "yellow"];
+export const COLORS = ["red", "green", "blue", "yellow", "pink"];

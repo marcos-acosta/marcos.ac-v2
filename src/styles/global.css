@@ -21,6 +21,7 @@
 	--tag-blue: rgb(62, 97, 154, 0.15);
 	--tag-red: rgb(188, 76, 74, 0.15);
 	--tag-yellow: rgb(194, 168, 49, 0.15);
+	--tag-pink: rgba(194, 49, 146, 0.15);
 }
 @font-face {
 	font-family: "Karla";
