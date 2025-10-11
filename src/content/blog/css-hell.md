@@ -9,7 +9,7 @@ tags: 'projects,games,web-dev'
 
 _Try it yourself! [csshell.com](https://csshell.com)_
 
-### The context
+## The context
 
 Two notable events occurred in June of 2023: One, I had my birthday on the 14th. Leading up to that day, my friend [Anshul](https://github.com/anshulkamath/) created an online "advent calendar" for my birthday, where each day came with a new puzzle to crack. Throughout that period, I had to find clues in disassembled C code, solve an injoke-filled crossword, identify songs from my massive Spotify playlist from just the first second, play a reversed version of [my own color guessing game](/blog/rugb), and much more. On the day of my birthday, I was personally handed an envelope with dozens of heartfelt notes from my college friends. I was absolutely blown away by the effort that went into making that gift, and I still like to read through those letters when I'm feeling down.
 
@@ -17,7 +17,7 @@ The other notable event in June of 2023 was Anshul's own birthday, ten days late
 
 One thing to know about Anshul is that he _loves_ low-level programming. As far as I can tell, his happiness directly correlates with his proximity to manipulating individual bits. He generally despises UX design and would half-jokingly refer to front-end work as code monkeying.[^1] This led me to wonder: what if my gift was a game that forced Anshul to become the very thing he despised the most? Thus, [CSS Hell](https://csshell.com) was born (originally called Code Monkey).
 
-### Game design
+## Game design
 
 I knew I wanted CSS Hell to be a series of puzzles that relied on increasingly deep knowledge of the CSS model to solve. It wasn't long before I settled on the main game mechanic: Each level would contain matching "pegs" and "holes" (indicated with matching colors). The goal of each level is to add CSS properties so that each peg (at least partially) overlaps its corresponding hole. Every element in the puzzle has a "budget" of properties which can be added, usually between zero (i.e. "locked") and two. With a few exceptions, any CSS property in the specification is allowed.
 
@@ -92,7 +92,7 @@ While useful for actual web design, this feature would make it very hard to desi
 
 This also extended to mixed longhand and shorthand properties. That is, if `margin` were already set on an element, then `margin-left`, `margin-right`, etc. wouldn't be permitted. Similarly, if `margin-right` were set, the `margin` shorthand couldn't be used, _but_ other longhand `margin-*` properties like `margin-left` _would_ be allowed. I figured this would give the best balance between having a "direction" for each puzzle without overly constraining the player.
 
-### Playtesting and (locally) launching
+## Playtesting
 
 With these rules in place, I could get to the most fun part: designing and play-testing levels. This process is perhaps most concisely communicated with two text message screenshots.
 
@@ -110,7 +110,7 @@ After finishing all 15 levels and adding a few birthday-specific elements, the g
 
 Along the way, we discovered some snags, like one level that depended on a certain CSS property which was only supported on the absolute latest version of Safari. But after remedying that and a few other bugs, I was left with a surprisingly playable CSS-based puzzle game. As far as I was concerned, this was "mission accomplished".
 
-### Surprise CSS Hell revival
+## Surprise CSS Hell revival
 
 Two years later, I remembered my old CSS game. I figured I might as well fix a couple outstanding `TODO`s and share it online, in case any frontend devs get a kick out of it. I removed all the birthday-specific elements, tested each level on the main browsers, and renamed it from Code Monkey to CSS Hell. I also shared it on [Hacker News](https://news.ycombinator.com/), but it didn't gain much attention there.
 
@@ -164,7 +164,7 @@ I hadn't seen Kevin's channel before, but I've since been informed that he's ess
 
 Still, Kevin's playthrough felt like a balm for the hypercritical Hacker News response: I could see him generally having a good time getting nerdsniped, and he avoided obvious cheats that went against the spirit of the game. Kevin's video also gave me the perfect footage I needed to make a [frustration-filled supercut](https://bsky.app/profile/marcos.ac/post/3lowlwaionc2p), and it brought to my attention a few _more_ oversights in the game design. For example, there were a few properties that players could use to sneakily circumvent existing position properties, like `(margin|padding)-(block|inline)-(start|end)` and `inset-*`. But thanks to the magic of open source, those issues were [patched by a contributor](https://github.com/marcos-acosta/css-hell/pulls?q=is%3Apr+is%3Aclosed+author%3AHyftar).
 
-### Reflection
+## Reflection
 
 Practically overnight, CSS Hell went from having ~30 page views per week to having 24k in a single week. I'm aware that this number could be a lot bigger; I mean, in high school I made a cringy Reddit meme that got 35k upvotes, and not too long ago I made a [video review of Broadway Junction station](https://www.tiktok.com/@worlds.worst.detective/video/7536241693885009183) that got over 60k views. But this was the most online attention I'd gotten for a game I'd designed, which was personally pretty exciting. It taught me a bunch of technical lessons, as well as some personal ones about handling blunt feedback and not over-indexing on internet success.
 

@@ -9,11 +9,11 @@ tags: 'projects,games,web-dev'
 
 _Try it yourself! [rugb.app](https://rugb.app)_
 
-### The context
+## The context
 
 It started when a friend showed me [this video](https://www.youtube.com/shorts/W4Rebo3aEkY) of Tom Lum guessing the RGB value of his friend's nail color with astonishing accuracy. _Now this_, I thought, _is a useless skill worth having_. I searched the web for a site where I could practice guessing RGB values in a gamified way but didn't find anything. So, as is always the case when a nerd can't find the exact thing they want, I decided to make it.
 
-### Game design
+## Game design
 
 Even with such a simple premise, it wasn't immediately clear to me how the game mechanic should be framed from a game design perspective. At the time (the year of our Lord 2022), Wordle had been out for a year but was still _the_ minimalist web game, so the "Wordle treatment" was very tempting. In that approach, the player would be shown a color and given _N_ guesses to  guess the exact RGB (or hex) values. Although very zeitgeist-y, I felt like the fun in guessing color codes was just getting good at being in the ballpark, not mechanically trial-and-error-ing to find the exact right values.
 
@@ -27,7 +27,7 @@ Finally, in Geoguessr-esque style, I added a summary page so the user could see 
 
 ![A screenshot from RUGB with the summary of the actual and predicted color from each round](../../assets/rugb/summary.png)
 
-### The color theory rabbit hole
+## The color theory rabbit hole
 
 By far and away, the most intricate part of this project was settling on a fair scoring function. In Geoguessr, the primary metric is distance and an exponential curve is applied. The exponential has a nice effect: guessing 1 mile closer to the target matters much more when you're, say, 5 miles from the target than it would if you were a thousand miles away.
 
@@ -85,7 +85,7 @@ When I swapped out my RGB-based Euclidean distance with LAB-based dE00 function,
 
 With the scoring function fixed, the only thing left to do was to pick a name. I settled on RUGB because it almost spells RGB and has absolutely nothing to do with rugby.
 
-### The brief RUGB scene at Harvey Mudd College
+## The brief RUGB scene at Harvey Mudd College
 
 Once the site went live, it started to spread among my friends, and then to their friends as people raced to the top of the leaderboard. This brought me a lot of joy– arguably, a game designer's one hope is that players enjoy the experience of playing it. 
 
@@ -101,7 +101,7 @@ As time went on, the top scores continued to creep higher into the 900s. By the 
 
 ![Albany celebrates reaching the top of the leaderboard](../../assets/rugb/albany-success.jpg)
 
-### Reflection
+## Reflection
 
 Looking back a few years later, making RUGB and watching its brief moment in the spotlight on campus was a highlight of the semester. I had made a few other games at that point, but (to the surprise of no one) it was especially rewarding to see other people get truly _involved_ with a game I made.
 
@@ -123,7 +123,7 @@ On the subject of over-engineering RUGB, some other ideas I had included a timed
 
 I slated these ideas for later, since I still need to graduate, and my head was filled with other projects I wanted to work on. Plus, it seemed like RUGB had gotten all the attention that a color-guessing game could get.
 
-#### On "almost making it"
+### On "almost making it"
 
 About a year later, I was telling a friend about RUGB. To my surprise, he seemed to already be familiar with it. He showed me this fellow named [Jared Cross](https://www.instagram.com/jared__cross) who found his niche as a color guessing expert. But Jared wasn't on RUGB; he used a hex-guessing site called [Hexcodle](https://hexcodle.com/) which was published a year after RUGB. The very next day, a different friend sent me a link to *another* recent hex-guessing game which was generating a lot of buzz online[^2]. I couldn't help beating myself up for not implementing the ideas I had, and for not attempting to share my work online. _If only I had_, I thought, _I might have had my big break_.  That was the first time I felt that specific feeling; I'd never been concerned about the mythical "big break" prior to making this silly little color-guessing game.
 
