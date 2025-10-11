@@ -11,13 +11,9 @@ const id = Astro.props.id;
 <div class="blogPreviewContainer">
   <a href={`/blog/${id}/`} class="postLink">
     <div class="titleContainer">
-      <div class="title">
-        {title}
-      </div>
-      <div class="dotDelimiter">•</div>
-      <div class="yearPub">
-        {pubDate.getFullYear()}
-      </div>
+      <span class="title">{title}</span><span class="dotDelimiter">•</span><span
+        class="yearPub">{pubDate.getFullYear()}</span
+      >
     </div>
   </a>
   <div class="description">{description}</div>
@@ -34,9 +30,6 @@ const id = Astro.props.id;
   }
 
   .titleContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
     font-size: 1.25rem;
     width: fit-content;
   }
@@ -51,13 +44,14 @@ const id = Astro.props.id;
     color: var(--gray);
   }
 
+  .dotDelimiter {
+    color: var(--gray);
+    margin: 0 5px;
+  }
+
   .blogPreviewContainer {
     display: flex;
     flex-direction: column;
     gap: 3px;
-  }
-
-  .dotDelimiter {
-    color: var(--gray);
   }
 </style>
