@@ -10,6 +10,8 @@ import PostPreviewList from "../components/PostPreviewList.astro";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const numPostsToShow = 5;
 ---
 
 <!doctype html>
@@ -80,9 +82,13 @@ const posts = (await getCollection("blog")).sort(
         <section>
           <h3>Recent posts</h3>
           <p>
-            <PostPreviewList posts={posts.slice(0, 5)} />
+            <PostPreviewList posts={posts.slice(0, numPostsToShow)} />
           </p>
-          <a href="/blog">See all⤼</a>
+          {
+            posts.length > numPostsToShow && (
+              <a href="/blog">See all {posts.length}⤼</a>
+            )
+          }
         </section>
       </PageContent>
     </PageLayout>

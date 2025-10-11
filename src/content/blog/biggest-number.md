@@ -6,6 +6,8 @@ heroImage: '../../assets/biggest-number/biggest-number-header.png'
 tags: 'essays,math'
 ---
 
+> Note: This essay is part of a series I was writing called "No Dumb Questions", which was originally published on a separate blog called "World's Worst Detective", hence the character.
+
 Today we'll address a question that has long occupied the minds of children, mathematicians, and child mathematicians: What's the biggest number?
 
 > **Child A**: When I grow up, I'm gonna have a million dollars.  

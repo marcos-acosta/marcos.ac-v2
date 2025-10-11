@@ -6,7 +6,7 @@
 
 :root {
 	--accent: #d39313;
-	--accent-light: #e9dec7;
+	--accent-light: #e9e0ce;
 	--accent-dark: #000d8a;
 	--black: rgb(25, 19, 15);
 	--gray: rgb(123, 119, 114);
@@ -152,6 +152,9 @@ blockquote {
 	background-color: var(--accent-light);
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
+}
+blockquote code {
+	background-color: var(--white);
 }
 blockquote > p:first-child {
 	margin-top: 0;

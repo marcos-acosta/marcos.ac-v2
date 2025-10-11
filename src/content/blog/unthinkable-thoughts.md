@@ -6,6 +6,8 @@ heroImage: '../../assets/unthinkable/unthinkable.png'
 tags: 'essays,math'
 ---
 
+> Note: This essay is part of a series I was writing called "No Dumb Questions", which was originally published on a separate blog called "World's Worst Detective", hence the character.
+
 I recently found myself on a Wikipedia page entitled [List of animals by number of neurons](https://en.wikipedia.org/wiki/List_of_animals_by_number_of_neurons). I was surprised to learn that starfish have about 500 neurons, which is only double the neurons of the microscopic [tardigrade](https://en.wikipedia.org/wiki/Tardigrade). Is that even enough neurons to have a sensation of thought? What _is_ the sensation of thought? In any case, I figured, those poor things will never experience even a fraction of the thoughts that a human can have in the span of a single day. That left me with a nagging question, though.
 
 > Are there thoughts that no human will ever be able to think?
