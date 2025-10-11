@@ -1,6 +1,6 @@
 ---
 title: "Are there unthinkable thoughts?"
-description: "If ants can't comprehend calculus, what are humans missing out on?"
+description: "If ants can't comprehend calculus, could we be missing out on something?"
 pubDate: 'Feb 16 2025'
 heroImage: '../../assets/unthinkable/unthinkable.png'
 tags: 'essays,math'
