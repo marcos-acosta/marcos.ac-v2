@@ -7,8 +7,6 @@ tags: 'projects,community,game-design,stub'
 pinned: true
 ---
 
-> This is a stub blog post, which I'll fill in later! But the TLDR is that [Creative Coding NYC (CCNYC)](https://www.instagram.com/creativecodingnyc/) was turning 2 years old, and we wanted to run a special event to celebrate the occasion. In collaboration with [Sasha Solovyeva](https://sashasolovyeva.com/about/), and running with the theme of "constraint breeds creativity", I designed a game in which teams compete to find quintessential NYC items in a scavenger hunt, all the while saddling each other with creative constraints which take effect in the next stage, the hackathon. The event was a total success, and it was fantastic to see everyone having such a great time competing and making such memorable creative projects.
-
 ## How it started
 
 Starting in April of 2025, I began showing up to [Creative Coding NYC](https://www.instagram.com/creativecodingnyc/) (CCNYC) pretty much every week. CCNYC is full of people who love to code for the hell of it, frequently (but not always) using software like [p5.js](https://p5js.org/), [three.js](https://threejs.org/), [TouchDesigner](https://derivative.ca/UserGuide/TouchDesigner), and livecoding libraries like [strudel](https://strudel.cc/) and [hydra](https://hydra.ojack.xyz/docs/). As for me, I skew more toward making web apps, but the community is so welcoming and I share so much in common with the folks there that it wasn't hard to show up every week and become a regular.
@@ -65,11 +63,9 @@ I had fixed the most glaring issues in the game theory, but there was now a prac
 
 The site was made with Typescript/React, and I chose Firebase for my database due to the ease of use.
 
-![A screenshot of the web app](../../assets/scavenger-hunt/app-example.png)
-
 With the game design fixed and companion web app up at [hunt.ccnyc.space](https://hunt.ccnyc.space), it was time to actually run the thing.
 
-## Running the creative coding scavenger hunt
+## Running the event
 
 By the time the club's anniversary was rolling around, we had 70 people signed up to participate. Needless to say, I was stoked. On the day before the event, though, bad news struck: the forecast predicted a thunderstorm to hit precisely when the scavenger hunt was set to start. After a few moments of panic, we decided to keep the scavenger hunt on, but to prepare an alternate list of items that could be found without leaving the subway system.
 
@@ -82,6 +78,8 @@ The next day, sure enough, it started pouring just as we organizers began making
 Thankfully, the rain temporarily let up right around the time that people started showing up. I checked people in, (re)assigned teams, and explained the rules. The forecast was also looking less severe, so I asked the group if they wanted to stay underground or brave the aboveground variant; much to my delight, the consensus was for the latter. Once I made sure everyone's team was visible on the site, I sent everybody out the door and took a minute to recoup.
 
 ![Me lying on the floor](../../assets/scavenger-hunt/recoup.png)
+
+### The scavenger hunt
 
 I had made a WhatsApp group with everyone in the scavenger hunt so that teams could send pictures of the items they found, which served as both a source of realtime updates and crowdsourced verification. Within minutes of teams leaving the venue, my phone was blowing up with pictures of pizza slices, bodega cats, and people reading books on the train. It was something to behold.
 
@@ -111,4 +109,34 @@ And crime, featuring biking on the sidewalk, fare beating, and blocking a fire h
 
 ![Crimes](../../assets/scavenger-hunt/crimes.png)
 
-Slowly, people began streaming back into the venue, which meant it was time for phase 2.
+Gradually, folks began streaming back into the venue, which meant it was time for hacking and (more) pizza.
+
+### The hackathon
+
+Thankfully, the hackathon portion of the event more or less ran itself. A few experienced hackers (including creative coding celebrity [Dan Shiffman](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw)) volunteered to walk around and give teams any help they needed. [Jake Welch](https://jakewelch.design/#/) was a fount of knowledge for folks using [p5](https://p5js.org/) for the first time.
+
+![Jake Welch offering his intellectual services](../../assets/scavenger-hunt/so-wise.png)
+
+It was a huge relief to hear the room filled with focused chatter and laughter, which I took as an indication that people were actually having _fun_ hacking despite the constraints.
+
+![A collage of participants working together](../../assets/scavenger-hunt/hacking.png)
+
+Once time was up, we moved on to a showcase where folks could show off their project and check out other teams' creative sketches. I was honestly blown away by the creativity and diversity I saw across all the projects.
+
+![A collage of people crowded around laptops](../../assets/scavenger-hunt/showcase.png)
+
+Some of my favorite projects include a game where you try to [yell as loud as a subway train](https://drive.google.com/file/d/1PBsxDtw_ui7fTwoCZHKKq2rF5lLHaKJW/view?usp=sharing) (constraints: no faster than 5fps, <100 loc), an [offline-only emoji-only chatroom](https://drive.google.com/file/d/11SSOYyO0s6OMZvGoPzgXX4p2jXExOFmv/view?usp=sharing) (no color, no text), a [coin-operated binocular simulator](https://drive.google.com/file/d/1a5WEQ_yAssaU7UlYqL_-7Npe9okjp8d-/view?usp=sharing) (64x64 px, no color, no curves, no Python), and a game where you need to [repeatedly type "ps" to placate a bodega cat](https://drive.google.com/file/d/1KOtQSflSVCEKgCl21jw4wR3wFy8ePwlR/view?usp=sharing) (64x64 px, no curves). That last project won our audience popular vote award, and you can see [Josh](https://joshjoshjosh.net/)'s first-hand experience of the whole event [here](https://www.tiktok.com/@joshjoshjosh.net/video/7553511433401601294)!
+
+### Awards
+
+Afterward, we held an awards ceremony to celebrate all the incredible work our participants had created, featuring guest speakers [Xin Xin](https://xin-xin.info/info/) (executive director at the [Processing Foundation](https://processingfoundation.org/)), [Patt Vira](https://www.pattvira.com/) (distinguished online creative coder), and our own Dan Shiffman.
+
+![Awards ceremony](../../assets/scavenger-hunt/awards-1.png)
+
+![Awards ceremony](../../assets/scavenger-hunt/awards-2.png)
+
+![Awards ceremony](../../assets/scavenger-hunt/awards-3.png)
+
+## Wrapping up
+
+Overall, I was immensely happy with how the event went. I had the opportunity to design an fun and novel experience for dozens of people, and it went as well or better than I could have anticipated. Not even the torrential downpour ruined our event, although it certainly threatened to. I'm definitely looking forward to the next time I get to run an event of this type.
