@@ -27,11 +27,11 @@ But I kept brainstorming. Along the way, I was suddenly reminded of a project by
 
 ## The creative coding scavenger hunt hackathon extravaganza
 
-Her idea was to group participants into teams and send them on a scavenger hunt to find quintessential NYC items (a rat, a bodega cat, etc.) and capture media like photos or drawings along the way. Then, after finding each item (or running out of time), teams return to the venue to creatively code a "NYC postcard" of their own, using the media they collected during the hunt as material.
+Sasha's idea was to group participants into teams and send them on a scavenger hunt to find quintessential NYC items (a rat, a bodega cat, etc.) and capture media like photos or drawings along the way. Then, after finding each item (or running out of time), teams return to the venue to creatively code a "NYC postcard" of their own, using the media they collected during the hunt as material.
 
-I liked the concept, but I had a nagging feeling that the pieces didn't quite fit together. For one thing, I felt that requiring players to use media collected during their hunt was too restrictive. While any kind of media is _technically_ allowed, realistically, people will just take photos. So then, every team is trying to creatively code something interesting using a bunch of photos. This is fine, but image processing is a narrow slice of creative coding, and I didn't want to restrict everyone to that one technique. Moreover, if I put myself in the shoes of a participant, I would feel overwhelmed trying to find an interesting way of cramming all these photos into a cohesive result.
+I liked the concept, but I had a nagging feeling that the pieces didn't quite fit together. For one thing, I felt that requiring players to use media collected during their hunt was too restrictive. While any kind of media is _technically_ allowed, realistically, people will just take photos. So then, every team is trying to creatively code something interesting using a bunch of photos. This is fine, but image processing is a narrow slice of creative coding, and I didn't want to restrict everyone to that one technique. Moreover, if I put myself in the shoes of a participant, I would feel overwhelmed trying to find an interesting way to cram all these photos into a cohesive result.
 
-Sasha and I went back and forth on this point, and eventually compromised on not *requiring* teams to use scavenger hunt media in their creative coding sketch, but still encouraging teams to use their experience from the scavenger hunt as _inspiration_ for their project. I didn't have any better ideas, and we needed to start collecting signups, so we officially announced a "creative coding scavenger hunt".
+Sasha and I went back and forth on this point, and eventually compromised on not *requiring* teams to use scavenger hunt media in their creative coding sketch, but still encouraging them to use their experience from the scavenger hunt as _inspiration_ for their project. I didn't have any better ideas, and we needed to start collecting signups, so we officially announced a "creative coding scavenger hunt".
 
 Still, something wasn't right, and it bothered me. The main issue now was that the scavenger hunt part of the event had effectively no bearing on the subsequent hackathon. If I were participating in this event, at the end of the day, I'd wonder, *why was there a scavenger hunt?* I mean, don't get me wrong, I like scavenger hunts, but for a creative coding community anniversary, it doesn't make much sense. In other words, the scavenger hunt isn't *integrated* with the event. To quote Katie Salen and Eric Zimmerman's book _Rules of Play_:
 
@@ -39,13 +39,21 @@ Still, something wasn't right, and it bothered me. The main issue now was that t
 >
 > Imagine a multi-event athletic game, such as the Decathlon. At the start of the game, the players run a footrace. What if the rules of the game dictated that winning the footrace had nothing to do with the larger game? Imagine what would happen: the players would walk the race as slowly as possible, trying to conserve energy for the other, more meaningful events. Why should they do anything else? Although one of them will win the footrace, it will have no bearing on the larger game. On the other hand, if the players receive points depending on how well they rank and these points become part of a cumulative score, then the actions and the outcomes of the footrace are well integrated into the game as a whole.
 
-I stewed on this for a while. Since we had already announced the idea of the event, I knew I needed to keep the fundamental scavenger hunt + hackathon formula. So, the question became: what mechanism would permit for the scavenger hunt to affect the experience of the hackathon? One obvious mechanism would be for the scavenger hunt to somehow determine the _prompt_ for each team's creative coding project, but that approach didn't feel very interesting to me (this was essentially our original idea).
+I stewed on this for a while. Since we had already announced the idea of the event, I knew I needed to keep the fundamental formula of "scavenger hunt + hackathon". So, the question became: what mechanism would allow the scavenger hunt to affect the experience of the hackathon? One obvious mechanism would be for the scavenger hunt to somehow determine the _prompt_ for each team's creative coding project, but that approach didn't feel very interesting to me (this was essentially our original idea).
+
+![Constraint breeds creativity](../../assets/scavenger-hunt/constraint.png)
 
 As I kept brainstorming, I was reminded of the saying that "constraint breeds creativity". What if the scavenger hunt somehow resulted in certain creative _constraints_ that each team would need to work within / around during the hackathon? For example, one constraint might require that the team's final result be no more than 64x64 pixels large, and another might forbid the use of color. Maybe, then, the mechanic would be that each scavenger hunt item found allows a team to _remove_ a creative constraint from their team. In other words, if a team doesn't find any items, they have to follow _every_ constraint, and if they find all of them, they can essentially do whatever they want. That wasn't bad, but I felt it could be better. Then, it finally clicked.
 
 ## The final design
 
-Instead of starting out saddled with a dozen creative constraints and then removing them one by one, teams would start the scavenger hunt with a clean slate. Each item in the scavenger hunt would be associated with a specific constraint. For example, a living rat is associated with a constraint that forbids the use of Javascript. An analog clock visible from street level is associated with the 64x64 pixel constraint. When a team finds an item, they can impose the associated constraint on _another team_ of their choice to take effect during the hackathon. To avoid the situation where every team winds up with the same constraints, we enforce that each item can only be found a certain number of times (I went with three). Then, for the hackathon, we can give a broad prompt like "NYC" and let teams run wild. In my mind, this formulation solved pretty much every issue I had with the event: the scavenger hunt was now integrated into the broader event, there's a good balance between constraint and creativity, and- best of all- we've introduced team interaction.
+Instead of starting out saddled with a dozen creative constraints and then removing them one by one, teams would start the scavenger hunt with a clean slate. Each item in the scavenger hunt would be associated with a specific constraint. For example, a living rat is associated with a constraint that forbids the use of Javascript. An analog clock visible from street level is associated with the 64x64 pixel constraint. When a team finds an item, they can impose the associated constraint on _another team_ of their choice to take effect during the hackathon. The concept was simple enough that, when making instructional slides for the event, I could sum the whole thing up in two slides:
+
+![Items are associated with constraints](../../assets/scavenger-hunt/association.png)
+
+![Constraints are imposed on other teams](../../assets/scavenger-hunt/impose.png)
+
+To avoid the situation where every team winds up with the same constraints, we enforce that each item can only be found a certain number of times (I went with four). Then, for the hackathon, we can give a broad prompt like "NYC" and let teams run wild. In my mind, this formulation solved pretty much every issue I had with the event: the scavenger hunt was now integrated into the broader event, there's a good balance between constraint and creativity, and- best of all- we've introduced team interaction.
 
 Plus, there's a bunch of ways to keep the game balanced. For example, I added one item that, when found, allows the team to "veto" one of the constraints put on them. I also enforced a limit of four constraints per team so that one team doesn't get dogpiled.
 
@@ -54,10 +62,53 @@ I had fixed the most glaring issues in the game theory, but there was now a prac
 - Seeing the list of scavenger hunt items and their associated constraints, and the number remaining of each
 - Seeing all constraints currently placed on your team
 - Marking an item as found and choosing a valid team to place that constraint on
+
 The site was made with Typescript/React, and I chose Firebase for my database due to the ease of use.
+
+![A screenshot of the web app](../../assets/scavenger-hunt/app-example.png)
 
 With the game design fixed and companion web app up at [hunt.ccnyc.space](https://hunt.ccnyc.space), it was time to actually run the thing.
 
 ## Running the creative coding scavenger hunt
 
-By the time the club's anniversary was rolling around, we had 70 people signed up to participate. Needless to say, I was stoked. On the day before the event, though, we discovered something awful: thunderstorms forecast to start precisely when the scavenger hunt was set to start.
+By the time the club's anniversary was rolling around, we had 70 people signed up to participate. Needless to say, I was stoked. On the day before the event, though, bad news struck: the forecast predicted a thunderstorm to hit precisely when the scavenger hunt was set to start. After a few moments of panic, we decided to keep the scavenger hunt on, but to prepare an alternate list of items that could be found without leaving the subway system.
+
+The next day, sure enough, it started pouring just as we organizers began making our way to the venue for setup.
+
+![A screenshot of a text message where I'm clearly drenched](../../assets/scavenger-hunt/raining.jpg)
+
+![Text messages: GRAB UMBRELLAS](../../assets/scavenger-hunt/umbrellas.png)
+
+Thankfully, the rain temporarily let up right around the time that people started showing up. I checked people in, (re)assigned teams, and explained the rules. The forecast was also looking less severe, so I asked the group if they wanted to stay underground or brave the aboveground variant; much to my delight, the consensus was for the latter. Once I made sure everyone's team was visible on the site, I sent everybody out the door and took a minute to recoup.
+
+![Me lying on the floor](../../assets/scavenger-hunt/recoup.png)
+
+I had made a WhatsApp group with everyone in the scavenger hunt so that teams could send pictures of the items they found, which served as both a source of realtime updates and crowdsourced verification. Within minutes of teams leaving the venue, my phone was blowing up with pictures of pizza slices, bodega cats, and people reading books on the train. It was something to behold.
+
+![Chat screenshots with pizza, bodega cats, and more](../../assets/scavenger-hunt/chat.png)
+
+Also within minutes, I got a message that there's a bug on the site: although the site correctly displays how many of each item are left, I forgot to actually prevent users from marking an item as found if there are none left. So, I ducked into a side room and did some good-old live hotfixing.
+
+![Panicking at my laptop](../../assets/scavenger-hunt/hotfix.png)
+
+I was endlessly amused by the stream of photos that were rolling into the chat. A few of my favorites include the bodega cats:
+
+![Bodega cats](../../assets/scavenger-hunt/cats.png)
+
+Ginormous slices of pizza:
+
+![Pizza slices](../../assets/scavenger-hunt/pizzas.png)
+
+Four different teams took pictures of the exact same metrocard:
+
+![Metrocards](../../assets/scavenger-hunt/metrocards.png)
+
+Rats, the city's unofficial mascot:
+
+![Rats](../../assets/scavenger-hunt/rats.png)
+
+And crime, featuring biking on the sidewalk, fare beating, and blocking a fire hydrant.
+
+![Crimes](../../assets/scavenger-hunt/crimes.png)
+
+Slowly, people began streaming back into the venue, which meant it was time for phase 2.
