@@ -3,7 +3,7 @@ title: "Running a creative coding scavenger hunt"
 description: "Designing a game that involves running around NYC and creatively hacking"
 pubDate: 'Sep 06 2025'
 heroImage: '../../assets/scavenger-hunt/showcase.jpg'
-tags: 'projects,community,game-design,stub'
+tags: 'projects,community,game-design'
 pinned: true
 ---
 
