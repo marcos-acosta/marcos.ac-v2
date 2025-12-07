@@ -37,6 +37,8 @@ Still, something wasn't right, and it bothered me. The main issue now was that t
 >
 > Imagine a multi-event athletic game, such as the Decathlon. At the start of the game, the players run a footrace. What if the rules of the game dictated that winning the footrace had nothing to do with the larger game? Imagine what would happen: the players would walk the race as slowly as possible, trying to conserve energy for the other, more meaningful events. Why should they do anything else? Although one of them will win the footrace, it will have no bearing on the larger game. On the other hand, if the players receive points depending on how well they rank and these points become part of a cumulative score, then the actions and the outcomes of the footrace are well integrated into the game as a whole.
 
+![A copy of Rules of Play](../../assets/scavenger-hunt/rules-of-play.png)
+
 I stewed on this for a while. Since we had already announced the idea of the event, I knew I needed to keep the fundamental formula of "scavenger hunt + hackathon". So, the question became: what mechanism would allow the scavenger hunt to affect the experience of the hackathon? One obvious mechanism would be for the scavenger hunt to somehow determine the _prompt_ for each team's creative coding project, but that approach didn't feel very interesting to me (this was essentially our original idea).
 
 ![Constraint breeds creativity](../../assets/scavenger-hunt/constraint.png)
