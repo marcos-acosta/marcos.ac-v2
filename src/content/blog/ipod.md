@@ -62,5 +62,5 @@ In the first few days of using my iPod, I'd frequently catch myself evaluating t
 So if you've got one of these things lying around– try it out again, you might like it more than you think.
 
 [^1]: See: [Jack Stratton's hilariously idiosyncratic interview with CNBC](https://www.youtube.com/watch?v=LB1sTH7bUQ4).
-[^2]: I haven't looked as deeply into other streaming services like Apple Music or YouTube Music, which I've heard are better, but the issues Pelly identifies in the streaming model doesn't make me super excited about those, either.
+[^2]: I haven't looked as deeply into other streaming services like Apple Music or YouTube Music, which I've heard are better, but Pelly's arguments against the streaming model in general has curbed my enthusiasm for those alternatives anyway.
 [^3]: I actually have no idea what percent of recorded music is on Spotify. That seems like it would be really hard to estimate.
