@@ -3,7 +3,7 @@ title: "Rediscovering my iPod nano"
 description: "Everything old is new again"
 pubDate: 'Dec 06 2025'
 heroImage: '../../assets/ipod/cover.png'
-tags: 'misc'
+tags: 'misc,updates'
 pinned: false
 ---
 
@@ -55,12 +55,44 @@ Also, the decision paralysis I often feel on Spotify is gone, since I only have 
 
 Plus, adding new albums to my iPod is actually an enjoyable experience. Whereas "saving" a song on Spotify doesn't feel like much, downloading an album to my iPod feels like adding something special to my collection that I'm then actively looking forward to listening to.
 
-The other thing I didn't expect to make such a difference was no longer having the burden of *evaluating* every song in an album. I wasn't even aware I did this, but on Spotify, there was a constant background process in my head to decide whether I liked the current song *enough* to add it to my playlists. I'd also be juggling other considerations, like whether I already had too many songs of the same vibe. It might not sound like much, but it was a constant metacognition, and it occurred _while_ I was listening to music.
+The other thing I didn't expect to make such a difference was no longer having the burden of *evaluating* every song in an album. I wasn't even aware I did this, but on Spotify, there was a constant background process in my head to decide whether I liked the current song *enough* to add it to (or keep it in) my playlists. I'd also be juggling other considerations, like whether I already had too many songs of the same vibe. It might not sound like much, but it was a constant metacognition, and it occurred _while_ I was listening to music.
 
-In the first few days of using my iPod, I'd frequently catch myself evaluating the current song like that: "how *much* do I like this song?" It came as a huge relief that I didn't need to do that anymore. I could just listen to the song.
+In the first few days of using my iPod, I'd frequently catch myself evaluating the current song like that: "how *much* do I like this song?" It came as a huge relief to realize I didn't need to do that anymore. I could just listen to the song.
+
+There's two other minutiae I like about the iPod: the clip on the back (so convenient!) and the fact that "Artists" and "Composers" are two separate apps, the latter of which I never use, but nevertheless appreciate the existence of.
 
 So if you've got one of these things lying around– try it out again, you might like it more than you think.
 
+## Addendum
+
+I added this command to my aliases to add cover art to a folder of `mp3`s, in case the ones I downloaded are missing it:
+
+```sh
+add_cover_to_mp3s() {
+  local cover_image="$1"
+
+  if [ -z "$cover_image" ]; then
+    echo "Usage: add_cover_to_mp3s /path/to/cover.jpg"
+    return 1
+  fi
+
+  if [ ! -f "$cover_image" ]; then
+    echo "Error: Cover image not found: $cover_image"
+    return 1
+  fi
+
+  for file in *.mp3; do
+    # Remove old covers and add new one to a temp file
+    ffmpeg -i "$file" -i "$cover_image" -c copy -map 0 -map -v -map 1 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" "temp_$file" -y
+
+    # Overwrite original file with the new one
+    mv "temp_$file" "$file"
+  done
+
+  echo "Done"
+}
+```
+
 [^1]: See: [Jack Stratton's hilariously idiosyncratic interview with CNBC](https://www.youtube.com/watch?v=LB1sTH7bUQ4).
 [^2]: I haven't looked as deeply into other streaming services like Apple Music or YouTube Music, which I've heard are better, but Pelly's arguments against the streaming model in general has curbed my enthusiasm for those alternatives anyway.
-[^3]: I actually have no idea what percent of recorded music is on Spotify. That seems like it would be really hard to estimate.
+[^3]: Okay, yes, not _all_ recorded music, but you know what I mean.

@@ -3,7 +3,7 @@ title: "Are there unthinkable thoughts?"
 description: "If ants can't comprehend calculus, could we be missing out on something?"
 pubDate: 'Feb 16 2025'
 heroImage: '../../assets/unthinkable/unthinkable.png'
-tags: 'essays,math,stub'
+tags: 'essays,math,philosophy'
 ---
 
 > Note: This essay is part of a series I was writing called "No Dumb Questions", which was originally published on a separate blog called "World's Worst Detective", hence the character.

@@ -4,7 +4,7 @@ description: "The color-guessing game that made me realize I don't know what col
 pubDate: 'Oct 01 2022'
 updatedDate: 'Oct 03 2025'
 heroImage: '../../assets/rugb/rugb.png'
-tags: 'projects,game-design,web-dev'
+tags: 'projects,games,web-dev'
 pinned: true
 ---
 

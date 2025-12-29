@@ -4,7 +4,7 @@ description: "What if the mechanic of a web game was the styling itself?"
 pubDate: 'Jul 24 2023'
 updatedDate: 'Oct 07 2025'
 heroImage: '../../assets/csshell/csshell-cover.png'
-tags: 'projects,game-design,web-dev'
+tags: 'projects,games,web-dev'
 pinned: true
 ---
 
