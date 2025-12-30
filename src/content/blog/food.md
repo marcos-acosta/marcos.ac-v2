@@ -18,7 +18,9 @@ Then, later came. I had graduated college and didn't want to take expensive[^1] 
 
 ## The elemental diet
 
-I think of the elemental diet as the complement of the elimination diet: instead of eating everything except a small list of ingredients, you eat _nothing_ except a small list of ingredients. The first step was to live solely off of these insurance-covered[^2] [amino acid shakes](https://www.neocate.com/shop/hypoallergenic-formula-and-products/splash) for two months. Assuming that worked, we would slowly re-introduce foods into my diet in small batches every 1-2 months. At that pace, it could easily take two years to build up a normal-looking diet that doesn't trigger my condition.
+I think of the elemental diet as the complement of the elimination diet: instead of eating everything except a small list of ingredients, you eat _nothing_ except a small list of ingredients. The first step was to live solely off of these insurance-covered[^2] [amino acid shakes](https://www.neocate.com/shop/hypoallergenic-formula-and-products/splash) for two months. Assuming that worked, we would slowly re-introduce foods into my diet in small batches every 1-2 months. At that pace, it could easily take two years to build up a normal-looking diet that doesn't trigger my condition. For reference, this is what a 30-day supply looks like:
+
+![A dolly with boxes upon boxes stacked on it](../../assets/food/months-supply.png)
 
 Those first two months were pretty great, actually. Just kidding, obviously it sucked. I remember the first day especially well. The night before, I'd enjoyed my "last meal"; a philly cheese steak from the corner deli. Waking up and remembering that I had two foodless months ahead of me, followed by a much longer stretch of extremely limited and philly-cheese-steak-less diets was instantly demoralizing. The temptation to give up before I'd even started was overwhelming.
 
