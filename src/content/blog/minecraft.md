@@ -19,6 +19,8 @@ As a longtime React user, this was my first time using Vue, which took a bit of 
   * Involves undoing crafting, if the user picked up a crafted output
 * Handling mobile (drag instead of click)
 
+Neal and I settled on a diamond pickaxe for the "target item" the player needed to craft because it wasn't an obscure recipe, but it required a couple steps: craft wooden planks from the logs, then sticks from the planks, and finally the pickaxe from the planks and diamond. One interesting consequence of this was that I needed to find _all_ the recipes that the player could conceivably craft from the initial items (two logs and one diamond), because I didn't want to cut corners. For example, the user could make wooden stairs from six of the wooden planks, or a jukebox from all the wooden planks and the diamond. To be honest, I don't remember how I managed to come up with this comprehensive list (oops), but the end result was a non-watered down crafting table.
+
 I was thinking of adding some additional nice-to-have features from the original game, like dragging across multiple slots to distribute in-hand items, but we decided it wasn't really worth the extra effort.
 
 All things considered, though, it was pretty straightforward. Props to Neal for making the vast majority of the levels, each of which is impressive in its own right. When the game was released, I got to watch some streamers play through the game and was delighted to see that they were able to treat it exactly like the in-game crafting table and [breeze on through](https://youtu.be/JVbZiEkFkyU?si=fQrxioqAedlB5IaQ&t=272).
