@@ -3,7 +3,7 @@ title: "Rediscovering my iPod nano"
 description: "Everything old is new again"
 pubDate: 'Dec 06 2025'
 heroImage: '../../assets/ipod/cover.png'
-tags: 'misc,updates'
+tags: 'random,updates'
 pinned: false
 ---
 

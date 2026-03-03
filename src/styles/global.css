@@ -76,7 +76,6 @@ h5,
 h6 {
 	margin: 1rem 0 0.5rem 0;
 	color: rgb(var(--black));
-	line-height: 1.2;
 }
 h1 {
 	font-size: 2.75em;

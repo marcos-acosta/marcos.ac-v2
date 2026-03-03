@@ -2,6 +2,7 @@
 title: "Recreating Minecraft's crafting table in the browser"
 description: "My small contribution to Neal's I'm Not a Robot game"
 pubDate: 'Aug 10 2025'
+updatedDate: 'Feb 21 2026'
 heroImage: '../../assets/not-a-robot/streamer.png'
 tags: 'projects,web-dev,games'
 ---
