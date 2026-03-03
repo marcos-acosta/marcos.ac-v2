@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import BaseLayout from "./BaseLayout.astro";
 import PageLayout from "./PageLayout.astro";
 import PageContent from "./PageContent.astro";
 import TagContainer from "../components/TagContainer.astro";
@@ -14,11 +14,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
   Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-  </head>
-  <body>
+<BaseLayout title={title} description={description}>
     <PageLayout>
       <Header />
       <PageContent>
@@ -55,8 +51,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
         </article>
       </PageContent>
     </PageLayout>
-  </body>
-</html>
+</BaseLayout>
 
 <style>
   main {

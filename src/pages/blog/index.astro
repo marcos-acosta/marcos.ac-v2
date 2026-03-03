@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
 import PageContent from "../../layouts/PageContent.astro";
 import PostPreviewList from "../../components/PostPreviewList.astro";
@@ -12,12 +12,7 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <PageLayout>
       <Header />
       <PageContent>
@@ -32,5 +27,4 @@ const posts = (await getCollection("blog")).sort(
         </p>
       </PageContent>
     </PageLayout>
-  </body>
-</html>
+</BaseLayout>
