@@ -7,7 +7,9 @@ tags: 'random,projects'
 pinned: true
 ---
 
-In October last year, I was talking with my friend Jiadai about [tactics for avoiding rick rolls](https://www.youtube.com/watch?v=dQw4w9WgXcQ), including learning to recognize the distinctive `XcQ` in the canonical Rick Roll YouTube video: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`. Since we had been talking about QR codes recently,[^1] I started thinking about the practicality of recognizing rick roll QR codes. In a moment of overconfidence, I stated that by the end of January 2026, I would be able to discern rick roll QR codes from safe QR codes, by sight alone, with 95% accuracy. Jiadai recorded a voice memo of me saying this, and the bet was on.
+In October last year, I was talking with my friend Jiadai about [tactics for avoiding rick rolls](https://www.youtube.com/watch?v=dQw4w9WgXcQ), including learning to recognize the distinctive `XcQ` in the canonical Rick Roll YouTube video: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`. Since we had been talking about QR codes recently,[^1] I started thinking about the practicality of recognizing rick roll QR codes.
+
+In a moment of overconfidence, I stated that by the end of January 2026, I would be able to discern rick roll QR codes from safe QR codes, by sight alone, with 95% accuracy. The loser would have to listen to Rick Astley's ["Never Gonna Give You Up"](https://www.youtube.com/watch?v=1VEogQzZ93U) on repeat for three hours. Jiadai recorded a voice memo of me saying this, and the bet was on.
 
 ## Formalizing the bet
 
@@ -28,7 +30,7 @@ As for the safe QR codes, I decided it would be most fun if Jiadai personally su
 
 The quiz would be relatively straightforward: each round, there would be a 50% chance of a rick roll or a safe QR code being shown, and I would need to correctly identify which one it is 19 times out of 20.
 
-The punishment? Listening to "Never Gonna Give You Up" for three hours continuously.
+How hard could this be?
 
 ## How QR codes work
 
@@ -162,7 +164,7 @@ With the data quality improved, all that was left was to choose the machine lear
 
 That's right, we're doing some old school machine learning.
 
-Decision trees were a natural fit for one big reason: they're basically flow charts, which makes them super easy to interpret and commit to memory. Sure, I could train a small neural net, but sadly, the gazillion-parameter organic neural network in my skull is incapable of emulating even a tiny artificial neural network.
+Decision trees were a natural fit because they're basically just data-generated flowcharts. At trial time, I wouldn't need to do any difficult mental calculation; I'd just run through a series of yes/no questions like "is the module at (4, 7) on?" and follow the branches until I hit a leaf node. I mean, sure, I could also train a small neural net to accomplish the same task, but sadly, the gazillion-parameter organic neural network in my skull is incapable of emulating even a tiny artificial neural network.
 
 So, I split my data into two buckets, version 3 and version 4, and converted all the QR codes to vectors by concatenating all the rows and representing them numerically. In other words, a single version 3 QR code became an 841-dimensional vector, and a version 4 QR code became a 1,089-dimensional vector. Then I just trained a decision tree for each version using good ol' `sklearn`, and that was that. The only question was: would it be good enough?
 
@@ -192,7 +194,7 @@ Uh... well, that's not going to work. I had a better shot of memorizing the enti
 
 Each "key module" was numbered on both the grid and in the decision tree so that I could easily cross-reference. I could also tell from the tree structure that the models clearly _did_ memorize parts of the rick roll QR codes. In the tree shown above, there are only three combinations that result in a rick roll prediction. If the QR code doesn't have one of those patterns, it's assumed to be safe. After seeing the confusion matrices, this made sense!
 
-### Training
+### Drilling
 
 For a while, I just stared at the study guides for the two versions and quizzed myself in my head, but eventually I knew I had to test myself more rigorously. I once again leaned on Claude to cook up a CLI where I could test myself against the same safe QR code generator I used for training. I also added an option to constrain the QR code generation to require certain modules be on or off, which helped me practice less-common branches of the decision tree.
 
@@ -243,7 +245,7 @@ We also took the opportunity to finish implementing Jiadai's design for the site
 
 ![A vaporwave-coded landing page](../../assets/rick-roll/new-design.png)
 
-## Post-epilogue
+RIP Jiadai's Spotify recommendation algorithm, though.
 
 ![A screenshot of a text conversation between me and Jiadai: she sends a screenshot of her Spotify, which is now recommending Rick Astley](../../assets/rick-roll/top-mixes.jpeg)
 
