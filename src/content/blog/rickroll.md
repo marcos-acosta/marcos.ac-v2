@@ -146,7 +146,7 @@ There was another issue, though: since we're looking at multiple modules, indivi
 
 ## Idea #3: Decision trees
 
-See, it was clear that certain combinations of modules being on or off would be indicative of the QR code's rick roll-iness. In the extreme case, the "combination" of _every_ module in the QR code is a perfect predictor. It seemed reasonable that there would be _smaller_ combinations that are also very predictive.
+So, it was clear that certain combinations of modules being on or off would be indicative of the QR code's rick roll-iness. In the extreme case, the "combination" of _every_ module in the QR code is a perfect predictor. It seemed reasonable that there would be _smaller_ combinations that are also very predictive.
 
 Since there are so few distinct "valid" rick roll QR codes compared to the infinite alternatives, it's almost certain that by random chance, there'll be some combinations of off/on modules that appear in many rick roll QR codes but are statistically unlikely among randomly chosen safe QR codes.
 
@@ -162,9 +162,9 @@ With the data quality improved, all that was left was to choose the machine lear
 
 > ChatGPT? LLMs? AI slop? What are you talking about? It's 2013, let's put on some Imagine Dragons and train some decision trees!
 
-That's right, we're doing some old school machine learning.
+It was time for some old school machine learning.
 
-Decision trees were a natural fit because they're basically just data-generated flowcharts. At trial time, I wouldn't need to do any difficult mental calculation. I'd just run through a series of yes/no questions like "is the module at (X, Y) on?" and follow the branches until I hit a leaf node. I mean, sure, I could also train a small neural net to accomplish the same task, but sadly, the gazillion-parameter organic neural network in my skull is incapable of emulating even a tiny artificial neural network.
+[Decision trees](https://www.youtube.com/watch?v=xvFZjo5PgG0) were a natural fit because they're basically just data-generated flowcharts. At trial time, I wouldn't need to do any difficult mental calculation. I'd just run through a series of yes/no questions like "is the module at (X, Y) on?" and follow the branches until I hit a leaf node. I mean, sure, I could also train a small neural net to accomplish the same task, but sadly, the gazillion-parameter organic neural network in my skull is incapable of emulating even a tiny artificial neural network.
 
 So, I split my data into two buckets, version 3 and version 4, and converted all the QR codes to vectors by concatenating their rows and representing them numerically. In other words, a single version 3 QR code became an 841-dimensional vector, and a version 4 QR code became a 1,089-dimensional vector. Then I just trained a decision tree for each version using good ol' `sklearn`, and that was that. The only question was: would it be good enough?
 
@@ -188,7 +188,7 @@ The hard part was over! Now I just needed to print out the trees with `sklearn`'
 
 ![A large, unreadable flowchart](../../assets/rick-roll/dt-ugly.png)
 
-Yeah, that's not happening. I'd have better luck memorizing the entire `curl` manpage. I needed something way more _visual_. Conflicted as I often am about vibecoding, I was more than happy to kick Claude Code into `Auto-Accept Mode` and turn that eyesore into a glamorous study guide:
+Yeah, that's not happening. I'd have better luck memorizing the entire `curl` manpage. I needed something way more _visual_. While I'm a fan of handcoding, I had no interest in learning the details of `matplotlib` so I kicked Claude Code into `Auto-Accept Mode` and asked it to turn that eyesore into a glamorous study guide:
 
 ![A QR code-sized grid with certain modules highlighted and numbered, and a decision tree below that references those modules](../../assets/rick-roll/study-guide-1.png)
 
@@ -210,7 +210,7 @@ The trial itself took place at CCNYC, a creative coding meetup I help organize. 
 
 Earlier,[^6] I made a website that would serve as the official arbiter of justice, hosted at [rickroll.marcos.ac](https://rickroll.marcos.ac) and designed by Jiadai. It was designed so that Jiadai could drop in a JSON file of her chosen safe URLs ([example JSON format](https://github.com/marcos-acosta/rick-roll-qr-codes/blob/main/example-json/non-rick-rolls.json)) and the site would take care of the rest. I used a Kahoot-style setup where one screen is the host and I, as the player, join with my phone. The mobile site uses the camera so that if I choose to scan the QR code, the backend server gets notified via WebSocket. Accidentally scanning a rick roll QR code results, obviously, in the dreaded song playing.
 
-We could have just generated the 20 QR codes as images and called it a day, but as the great Megamind once said...
+We could have just generated the 20 QR codes as images and called it a day, but [as the great Megamind once said...](https://www.youtube.com/watch?v=xvFZjo5PgG0)
 
 > _PRESENTATION!_  
 > – Megamind
