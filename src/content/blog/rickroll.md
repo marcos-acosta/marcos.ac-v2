@@ -34,8 +34,6 @@ The quiz would be 20 rounds, each with a 50/50 chance of a rick roll or safe QR 
 
 ## How QR codes work
 
-> _If you already know how QR codes work, you can skip to the [next section](https://marcos.ac/rick-roll#idea-1-just-read-the-damn-thing). And if you want to skip past all the trial-and-error stuff, you can jump straight to [this section](https://marcos.ac/rick-roll#idea-3-decision-trees)._
-
 Now that the terms were set, it was time to get to work.[^2] First up: actually learning how QR codes store data. A few resources I found helpful:
 
 * [Calvin](https://calvin.sh/)'s [Control Freak QR Code Generator](https://calvin.sh/tools/qr/)
