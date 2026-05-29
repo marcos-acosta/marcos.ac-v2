@@ -7,7 +7,7 @@ heroImage: '../../assets/not-a-robot/streamer.png'
 tags: 'projects,web-dev,games'
 ---
 
-I had the priviledge of contributing a small part to [Neal](https://neal.fun)'s CAPTCHA-based game, [I'm Not A Robot](https://neal.fun/not-a-robot/). The premise of the game involves solving a series of over fifty absurd CAPTCHA-like tasks in order to prove your humanity. I had recently made a [game of sorts](http://localhost:4321/blog/cursed-signup/) that involved parodying CAPTCHAs, so I was very down to help. The CAPTCHA I was tasked with creating was one near and dear to my heart: the Minecraft crafting table.
+I had the priviledge of contributing a small part to [Neal](https://neal.fun)'s CAPTCHA-based game, [I'm Not A Robot](https://neal.fun/not-a-robot/). The premise of the game involves solving a series of over fifty absurd CAPTCHA-like tasks in order to prove your humanity. I had recently made a [game of sorts](/blog/cursed-signup/) that involved parodying CAPTCHAs, so I was very down to help. The CAPTCHA I was tasked with creating was one near and dear to my heart: the Minecraft crafting table.
 
 ![A message from Neal asking if I would be interested in recreating the Minecraft crafting table for his CAPTCHA game](../../assets/not-a-robot/discord.png)
 

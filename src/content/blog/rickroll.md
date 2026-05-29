@@ -13,7 +13,7 @@ In a moment of overconfidence, I claimed that by the end of January 2026, I'd be
 
 ## Formalizing the bet
 
-At the start of January, I realized we needed to formalize the rules. Recognizing _any_ rick roll was clearly impossible — there are probably hundreds of rick roll YouTube links, not to mention literally infinite possible redirects. But memorizing a _single_ QR code would obviously be too easy. I wanted the terms to stay close to the _spirit_ of my original claim while still being at least remotely doable. Here's what I landed on for the specs of a "valid" rick roll QR code:
+At the start of January, I realized we needed to formalize the rules. Recognizing _any_ rick roll was clearly impossible: there are probably hundreds of rick roll YouTube links, not to mention literally infinite possible redirects. But memorizing a _single_ QR code would obviously be too easy. I wanted the terms to stay close to the _spirit_ of my original claim while still being at least remotely doable. Here's what I landed on for the specs of a "valid" rick roll QR code:
 
 - Any one of the three top rick roll YouTube URLs ([1](https://www.youtube.com/watch?v=dQw4w9WgXcQ), [2](https://www.youtube.com/watch?v=xvFZjo5PgG0), [3](https://www.youtube.com/watch?v=iik25wqIuFo))
 - Uppercase or lowercase domain (i.e. WWW.YOUTUBE.COM or www.youtube.com)
@@ -122,7 +122,7 @@ Here's what I saw for version 3 (29x29) using the "gibberish" algorithm for the 
 
 ![A heatmap on a QR code grid, with a smattering of bright modules in the right and center, and one bright spot near the top left](../../assets/rick-roll/mutual-information-v3-random.png)
 
-At first, I was excited — the finder and timing patterns had zero information, as expected. But then I spotted that yellow pixel in the top left. Why was one of the most information-dense modules the one that distinguishes low from medium error correction?
+At first, I was excited! The finder and timing patterns had zero information, as expected. But then I spotted that yellow pixel in the top left. Why was one of the most information-dense modules the one that distinguishes low from medium error correction?
 
 _\*facepalm\*_
 
