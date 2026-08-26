@@ -39,19 +39,19 @@ So all together, if you ignore the label and the half-bit we get from the time, 
 
 While trying out the Shortcuts actions for reading alarms, my Shortcut would sometimes fail with an extremly helpful "There was a problem" error message.
 
-!["There was a problem running the shortcut"](/src/assets/nyql/problem.png)
+![There was a problem running the shortcut](../../assets/nyql/problem.png)
 
 I figured this was probably some subtle bug in my string manipulation, but as I started troubleshooting and stripping away any real logic, I was left with a truly baffling bug.
 
 To illustrate the bug, I created an alarm with "Repeat Days" set to Sunday and Monday and ran a Shortcut that just prints the repeat days:
 
-!["Displaying repeat days succeeds"](/src/assets/nyql/repeat-days-works.png)
+![Displaying repeat days succeeds](../../assets/nyql/repeat-days-works.png)
 
 No surprise there: it prints Monday and Sunday, as expected. Now, change the alarm's repeat days to just Monday.
 
-!["Shortcut fails with mysterious error"](/src/assets/nyql/repeat-days-fails.png)
+![Shortcut fails with mysterious error](../../assets/nyql/repeat-days-fails.png)
 
-!["Facepalm"](/src/assets/nyql/facepalm.gif)
+![Facepalm](../../assets/nyql/facepalm.gif)
 
 It turns out there's an [already-reported bug](https://discussions.apple.com/thread/256008048?sortBy=rank) where attempting to read an alarm's repeat days fails when there is exactly one repeat day. Not zero, not two, but one. I can only assume this is a kind of internal type error along the lines of:
 
@@ -177,7 +177,7 @@ SET SCHEMA
 
 This is an excellent time to answer the question of, _where_ do I run NyQL? The answer is _anywhere_! Literally anywhere you can highlight and right-click text can become a NyQL IDE- Notes, Messages, even this web page.
 
-!["NyQL executed from this web page"](/src/assets/nyql/ide.png)
+![NyQL executed from this web page](../../assets/nyql/ide.png)
 
 This triggers the `NyQL` Shortcut, which does two things: first, it calls the `NyQL read` Shortcut, which simply reads all the alarms and serializes them into a single string. There are no alarms yet, so we can ignore this step. Then, it concatenates the serialized alarm data with the query string and passes that along to a Python script via the `Run Bash Script` action.
 
@@ -243,7 +243,7 @@ The `RUN` tells the main `NyQL` Shortcut to pass the remaining lines to the `NyQ
 
 It turns out that _you can't create a disabled alarm_.
 
-!["The interface for creating an alarm, which doesn't have a checkbox for enabled/disabled"](/src/assets/nyql/create-alarm.png)
+![The interface for creating an alarm, which doesn't have a checkbox for enabled/disabled](../../assets/nyql/create-alarm.png)
 
 It makes sense when you think about it. Who wants to create an alarm that _doesn't_ go off by default? Well, since it's a data-carrying bit, us.
 
@@ -251,11 +251,11 @@ To get around this, I did something pretty hacky, which is to _simulate_ the ins
 
 One funny side-effect of using Apple alarms as your database is that certain actions _require_ user input. For example, every time an alarm is disabled, there's an unskippable, blocking user prompt.
 
-!["Dialog box: Your 5:08 PM alarm is now Off"](/src/assets/nyql/alarm-off.png)
+![Dialog box: Your 5:08 PM alarm is now Off](../../assets/nyql/alarm-off.png)
 
 But after providing the necessary user input, we can see that the schema has been successfully encoded in alarms:
 
-!["Five alarms representing the schema"](/src/assets/nyql/schema.png)
+![Five alarms representing the schema](../../assets/nyql/schema.png)
 
 Now that we have the schema set in place, it only makes sense to add a few records:
 
@@ -337,11 +337,11 @@ DISABLE|91
 
 This is also where one gets to the experience the joy of clicking through 52 dialog boxes just to move the query along:
 
-!["A gif of clicking through 52 dialog boxes"](/src/assets/nyql/alarm-now-off.gif)
+![A gif of clicking through 52 dialog boxes](../../assets/nyql/alarm-now-off.gif)
 
 After all is said and `Done`, though, our four albums have been encoded with 96 Apple alarms.
 
-!["Scrolling through 96 alarms in the Clock app"](/src/assets/nyql/scroll.gif)
+![Scrolling through 96 alarms in the Clock app](../../assets/nyql/scroll.gif)
 
 Just to bring it home, let's test a nontrivial `SELECT` statement:
 
@@ -349,7 +349,7 @@ Just to bring it home, let's test a nontrivial `SELECT` statement:
 SELECT like, AVG(rating / 10) AS avg_rating GROUP BY like;
 ```
 
-!["avg_rating is 0.7000000000001 for like = True and 0.1 for like = False"](/src/assets/nyql/select-result.png)
+![avg_rating is 0.7000000000001 for like = True and 0.1 for like = False](../../assets/nyql/select-result.png)
 
 Gotta love floats.
 
@@ -368,7 +368,7 @@ They're not (lol).
 
 Of course.
 
-!["Running NyQL from an input field in the Clock app"](/src/assets/nyql/select-in-clock.png)
+![Running NyQL from an input field in the Clock app](../../assets/nyql/select-in-clock.png)
 
 ### LLM usage
 
