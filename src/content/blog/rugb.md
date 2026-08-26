@@ -5,7 +5,6 @@ pubDate: 'Oct 01 2022'
 updatedDate: 'Oct 03 2025'
 heroImage: '../../assets/rugb/rugb.png'
 tags: 'projects,games,web-dev'
-pinned: true
 ---
 
 _Try it yourself! [rugb.app](https://rugb.app)_
