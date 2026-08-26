@@ -1,7 +1,7 @@
 ---
 title: "NyQL: Storing arbitrary data in Apple alarms"
 description: "How I built a schema-driven database on byte-addressed memory backed by Apple alarms"
-pubDate: 'August 26 2026'
+pubDate: 'August 22 2026'
 heroImage: '../../assets/nyql/example.png'
 tags: 'random,projects'
 pinned: true
@@ -146,7 +146,7 @@ I decided to support six data types:
 | `2` | `INT` | Two's-complement signed int |
 | `3` | `TIMESTAMP` | Unsigned int (interpreted as seconds since epoch) |
 | `4` | `BOOLEAN` | `FALSE` if `0`, `TRUE` otherwise |
-| `5` | `DOUBLE` | IEEE 754 single-precision float |
+| `5` | `FLOAT` | IEEE 754 single-precision float |
 | `6`, `7` | (unused) | |
 
 ## The query language: NyQL
