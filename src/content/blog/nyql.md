@@ -135,7 +135,7 @@ Snooze allowed: No => 0
 => 4-byte unsigned int
 ```
 
-As for the field name? I... caved and put it in the alarm's label. I know, I know. There _is_ a pure way to do it (cap field names at 12 characters and store them as UTF-8 strings in the rest of the unused address space), but sometimes you're in a moment of weakness and there's an arbitrary string field is staring you right in the face.
+As for the field name? I... caved and put it in the alarm's label. I know, I know. There _is_ a pure way to do it (cap field names at 12 characters and store them as UTF-8 strings in the rest of the unused address space), but sometimes you're in a moment of weakness and there's an arbitrary string field staring you right in the face.
 
 I decided to support six data types:
 
@@ -151,20 +151,21 @@ I decided to support six data types:
 
 ## The query language: NyQL
 
-So a database is great, but what good is it if you can't _query_ it? Thus, running with the theme of sleep and alarms, NyQL was born. It copies the syntax of SQL while only supporting a limited subset of features. NyQL supports:
+So a database is great, but what good is it if you can't _query_ it? Thus, running with the theme of sleep and alarms, NyQL was born. It copies the syntax of SQL while supporting a limited subset of its features: schema definition, `INSERT`, `UPDATE`, `DELETE`, and `SELECT`, aliases, `WHERE` clauses with boolean logic, `ORDER BY`, `GROUP BY` with the usual aggregations (`SUM`, `COUNT`, `MIN`, `MAX`, `AVG`), and arithmetic.
 
-- Defining a schema
-- `UPDATE`, `DELETE`, and `SELECT` statements
-- Aliases (`AS`)
-- `WHERE` clauses and boolean logic (`OR` & `AND`)
-- `ORDER BY` clauses (`ASC` and `DESC`)
-- `GROUP BY` and a few aggregation functions (`SUM`, `COUNT`, `MIN`, `MAX`, `AVG`)
-- Arithmetic (`+`, `-`, `*`, `/`, `(`, `)`)
-- Equalities and inequalities
+### Where do you run NyQL?
 
-## Putting it all together
+_Anywhere_! Literally anywhere you can highlight and right-click text can become a NyQL IDE- Notes, Messages, even this web page.
 
-Let's see how NyQL works in action. First, we need to define the schema of our database. Let's say we want to catalog albums, so we define the following schema:
+![NyQL executed from this web page](../../assets/nyql/ide.png)
+
+Hell, you could even run NyQL from the Clock app if you find a text field:
+
+![Running NyQL from an input field in the Clock app](../../assets/nyql/select-in-clock.png)
+
+## Defining a schema
+
+Let's see how NyQL works in action. Let's say we want to catalog albums, so we define the following schema:
 
 ```sql
 SET SCHEMA
@@ -175,47 +176,9 @@ SET SCHEMA
   ("like", BOOLEAN, 1);
 ```
 
-This is an excellent time to answer the question of, _where_ do I run NyQL? The answer is _anywhere_! Literally anywhere you can highlight and right-click text can become a NyQL IDE- Notes, Messages, even this web page.
+When the `NyQL` Shortcut is triggered on the above, it does two things: first, it calls the `NyQL read` Shortcut, which simply reads all the alarms and serializes them into a single string. There are no alarms yet, so we can ignore this step. Then, it concatenates the serialized alarm data with the query string and passes that along to a Python script via the `Run Bash Script` action.
 
-![NyQL executed from this web page](../../assets/nyql/ide.png)
-
-This triggers the `NyQL` Shortcut, which does two things: first, it calls the `NyQL read` Shortcut, which simply reads all the alarms and serializes them into a single string. There are no alarms yet, so we can ignore this step. Then, it concatenates the serialized alarm data with the query string and passes that along to a Python script via the `Run Bash Script` action.
-
-The query gets converted to an Abstract Syntax Tree (using the [Lark](https://lark-parser.readthedocs.io/en/latest/index.html) Python library). The raw AST is pretty verbose, but here's a taste:
-
-```py
-Tree(
-  Token('RULE', 'start'),
-  [
-    Tree(
-      Token('RULE', 'stmt'),
-      [
-        Tree(
-          Token('RULE', 'set_schema_stmt'),
-          [
-            Tree(
-              Token('RULE', 'schema_col'),
-              [ 
-                Token('ESCAPED_STRING', '"name"'),
-                Tree(
-                  Token('RULE', 'col_type'),
-                  [
-                    Token('TEXT', 'TEXT')
-                  ]
-                ),
-                Token('INT', '15')
-              ]
-            ),
-            # ... more schema_cols ... #
-          ]
-        )
-      ]
-    )
-  ]
-)
-```
-
-The AST then gets transformed into a much more semantic data structure:
+There, the query gets parsed into an Abstract Syntax Tree (using the [Lark](https://lark-parser.readthedocs.io/en/latest/index.html) Python library) and then transformed into a much more semantic data structure:
 
 ```py
 SetSchemaStmt(cols=[
@@ -239,7 +202,9 @@ ADD|5:08 PM|monday sunday|false|like
 DISABLE|5
 ```
 
-The `RUN` tells the main `NyQL` Shortcut to pass the remaining lines to the `NyQL write` Shortcut, which dutifully follows the instructions. You might notice the odd-one-out: `DISABLE|5`. What's that doing there?
+The `RUN` tells the main `NyQL` Shortcut to pass the remaining lines to the `NyQL write` Shortcut, which dutifully follows the instructions. You might notice the odd-one-out: `DISABLE|5`.
+
+### When writing one byte takes two steps
 
 It turns out that _you can't create a disabled alarm_.
 
@@ -249,6 +214,8 @@ It makes sense when you think about it. Who wants to create an alarm that _doesn
 
 To get around this, I did something pretty hacky, which is to _simulate_ the instructions while they're being generated in order to track the _indices_ of the alarms, so that when it needs to create an `ADD` instruction for an alarm that should be disabled, it can tack on a `DISABLE` instruction with the index of that alarm. The `NyQL write` shortcut can then use that index to locate the alarm and disable it with the `Toggle Alarm` action.[^3]
 
+### The database asks for permission
+
 One funny side-effect of using Apple alarms as your database is that certain actions _require_ user input. For example, every time an alarm is disabled, there's an unskippable, blocking user prompt.
 
 ![Dialog box: Your 5:08 PM alarm is now Off](../../assets/nyql/alarm-off.png)
@@ -256,6 +223,8 @@ One funny side-effect of using Apple alarms as your database is that certain act
 But after providing the necessary user input, we can see that the schema has been successfully encoded in alarms:
 
 ![Five alarms representing the schema](../../assets/nyql/schema.png)
+
+## Inserting data
 
 Now that we have the schema set in place, it only makes sense to add a few records:
 
@@ -273,45 +242,7 @@ This time, there actually _are_ alarms in the database to read. The `NyQL read` 
 5|5:04 PM|5:05 PM|5:06 PM|5:07 PM|5:08 PM|Yes|Yes|Yes|Yes|No|No|Yes|Yes|Yes|No|name|artist|rating|published|like|Friday Saturday|Saturday Sunday|Tuesday Sunday|Tuesday Wednesday|Monday Sunday
 ```
 
-These get passed to the main Python engine along with the original query. Inside the engine, the query gets transformed into the following `Statement`:
-
-```py
-InsertStmt(rows=[
-  [
-    Literal(value='Madvillainy'), 
-    Literal(value='MF DOOM'),
-    Literal(value=8),
-    Literal(value=985323600), 
-    Literal(value=True)
-  ],
-  # ... more rows ... #
-])
-```
-
-And the alarm data gets decoded into the following:
-
-```py
-# Schema
-[
-  Field(
-    name='name',
-    datatype=<DataType.TEXT: 0>,
-    length_bytes=15,
-    start_offset_bytes=0,
-    end_offset_bytes=15
-  ),
-  # ... other Fields ... #
-  Field(
-    name='like',
-    datatype=<DataType.BOOLEAN: 4>,
-    length_bytes=1, 
-    start_offset_bytes=31,
-    end_offset_bytes=32
-  )
-]
-```
-
-Putting these two together, the engine can generate the instructions for writing the alarms that encode the given values according to the schema. The full instruction output is pretty huge:
+These get passed to the main Python engine along with the original query. Putting the parsed statement and the decoded schema together, the engine can generate the instructions for writing the alarms that encode the given values. The full instruction output is pretty huge:
 
 ```js
 RUN
@@ -319,29 +250,22 @@ ADD|12:00 AM|saturday friday tuesday|true|Alarm
 DISABLE|1
 ADD|12:01 AM|wednesday tuesday|true|Alarm
 DISABLE|2
-ADD|12:02 AM|saturday wednesday tuesday|false|Alarm
-DISABLE|3
-ADD|12:03 AM|saturday thursday wednesday tuesday|false|Alarm
-ADD|12:04 AM|friday wednesday tuesday|true|Alarm
-DISABLE|5
-// ... 126 instructions later ... //
-ADD|2:02 AM||true|Alarm
-DISABLE|87
-ADD|2:03 AM|saturday friday thursday tuesday|true|Alarm
-ADD|2:04 AM|saturday thursday wednesday|false|Alarm
+// ... 135 instructions later ... //
 ADD|2:05 AM|saturday friday|false|Alarm
 DISABLE|90
 ADD|2:06 AM|tuesday sunday|false|Alarm
 DISABLE|91
 ```
 
-This is also where one gets to the experience the joy of clicking through 52 dialog boxes just to move the query along:
+Remember that one blocking dialog box? Well, this time you have to click through _fifty-two_ of them.
 
 ![A gif of clicking through 52 dialog boxes](../../assets/nyql/alarm-now-off.gif)
 
 After all is said and `Done`, though, our four albums have been encoded with 96 Apple alarms.
 
 ![Scrolling through 96 alarms in the Clock app](../../assets/nyql/scroll.gif)
+
+## Querying
 
 Just to bring it home, let's test a nontrivial `SELECT` statement:
 
@@ -353,22 +277,23 @@ SELECT like, AVG(rating / 10) AS avg_rating GROUP BY like;
 
 Gotta love floats.
 
+## Closing time
+
+I presented AlarmDB at FLIP TABLE; ([talk link](https://fliptable.nyc/#nyql)) and earned the "most data" award, although I suspect the vote was biased since I was organizing.
+
+AlarmDB was, in some ways, the perfect nerdsnipe. It was an unsolved (albeit inconsequential) problem, it was full of unexpected technical challenges (none of which were insurmountable), and the final working result was immensely satisfying. It destroyed my sleep schedule, and not just because an alarm was going off every other minute.
+
+![It’s actually horrendous that I stayed up this late but programming AlarmDB is like crack for my brain / Well I guess crack is already for the brain](../../assets/nyql/like-crack.png)
+
 ## Appendix
 
 ### How do I install NyQL?
 
 I have no idea why you would, but if your heart so desires, you can find instructions in the [install section of the GitHub repo](https://github.com/marcos-acosta/alarmdb#installing-alarmdb).
 
-
 ### How are `NULL`s represented?
 
 They're not (lol).
-
-### Can you run NyQL from the Clock app?
-
-Of course.
-
-![Running NyQL from an input field in the Clock app](../../assets/nyql/select-in-clock.png)
 
 ### LLM usage
 
