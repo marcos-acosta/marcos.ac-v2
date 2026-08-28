@@ -58,7 +58,7 @@ Sure, I could use Google Forms. But if I'm hosting an event about storing data i
 
 So I looked around my room for inspiration, and my eyes landed on the [iPod Nano](https://marcos.ac/blog/ipod/) that I recovered from my parents' house a few months ago.
 
-![Wow, I really shouldn't store arbitrary data in there. However...](../../assets/flip-table/really-shouldnt.png)
+![Trojan-horsing data into my iPod](../../assets/flip-table/trojan-horse.png)
 
 Admittedly, I didn't do anything too clever. I just plugged it into my laptop and started a Postgres database with the data directory pointed at the iPod's volume.
 
