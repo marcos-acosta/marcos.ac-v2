@@ -10,74 +10,73 @@ import PostPreviewList from "../components/PostPreviewList.astro";
 const allPosts = await getCollection("blog");
 
 const posts = allPosts
-  .filter((p) => p.data.pinned)
+  .filter((p) => p.data.pinned && !p.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const numPostsToShow = 5;
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <PageLayout>
-      <Header />
-      <PageContent>
-        <section>
-          <h3 class="welcome">Welcome!</h3>
-          <p>
-            I'm Marcos. I'm a software engineer at the <a
+  <PageLayout>
+    <Header />
+    <PageContent>
+      <section>
+        <h3 class="welcome">Welcome!</h3>
+        <p>
+          I'm Marcos. I'm a software engineer at the <a
             href="https://www.mta.info/about"
             target="_blank"
-            rel="noreferrer">MTA</a>, where I work on the <a
+            rel="noreferrer">MTA</a
+          >, where I work on the <a
             href="https://www.curbed.com/article/mta-app-maps-commute-train-car-accessible-stations.html"
             target="_blank"
-            rel="noreferrer">MTA app</a>. In my free time, I help
-            organize a <a
-              href="https://www.instagram.com/creativecodingnyc/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              weekly creative coding meetup</a
-            >, make
-            <a
-              href="https://www.tiktok.com/@worlds.worst.detective"
-              target="_blank"
-              rel="noreferrer"
-            >
-              videos about public transit</a
-            >, and generally try to keep up with all the <a
-              href="https://wikigamejam.org/"
-              target="_blank"
-              rel="noreferrer">nerdy</a
-            >
-            <a
-              href="https://www.wonderville.nyc/events/wordhack-july-2024"
-              target="_blank"
-              rel="noreferrer">events</a
-            > NYC has to offer. Recently I've been getting into <a
-              href="https://risolab.sva.edu/"
-              target="_blank"
-              rel="noreferrer">riso printing</a
-            >.
-          </p>
-          <p>
-            If you'd like to reach me, you can find my contact <a
-              href="/resume.pdf"
-              target="_blank">here</a
-            >. Otherwise, feel free to read through anything here that catches
-            your attention.
-          </p>
-          <p>
-            Note that I'm in the process of "fast forwarding" my blog to catch
-            up with all of my projects, so some blog posts will be stubs until I
-            have a chance to expand on them.
-          </p>
-        </section>
-        <section>
-          <h3>Pinned posts</h3>
-          <p>
-            <PostPreviewList posts={posts} />
-          </p>
-          <a href="/blog">See all {allPosts.length} posts⤼</a>
-        </section>
-      </PageContent>
-    </PageLayout>
+            rel="noreferrer">MTA app</a
+          >. In my free time, I help organize a <a
+            href="https://www.instagram.com/creativecodingnyc/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            weekly creative coding meetup</a
+          >, make
+          <a
+            href="https://www.tiktok.com/@worlds.worst.detective"
+            target="_blank"
+            rel="noreferrer"
+          >
+            videos about public transit</a
+          >, and generally try to keep up with all the <a
+            href="https://wikigamejam.org/"
+            target="_blank"
+            rel="noreferrer">nerdy</a
+          >
+          <a
+            href="https://www.wonderville.nyc/events/wordhack-july-2024"
+            target="_blank"
+            rel="noreferrer">events</a
+          > NYC has to offer. Recently I've been getting into <a
+            href="https://risolab.sva.edu/"
+            target="_blank"
+            rel="noreferrer">riso printing</a
+          >.
+        </p>
+        <p>
+          If you'd like to reach me, you can find my contact <a
+            href="/resume.pdf"
+            target="_blank">here</a
+          >. Otherwise, feel free to read through anything here that catches
+          your attention.
+        </p>
+        <p>
+          Note that I'm in the process of "fast forwarding" my blog to catch up
+          with all of my projects, so some blog posts will be stubs until I have
+          a chance to expand on them.
+        </p>
+      </section>
+      <section>
+        <h3>Pinned posts</h3>
+        <p>
+          <PostPreviewList posts={posts} />
+        </p>
+        <a href="/blog">See all {allPosts.length} posts⤼</a>
+      </section>
+    </PageContent>
+  </PageLayout>
 </BaseLayout>

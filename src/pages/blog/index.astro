@@ -7,24 +7,24 @@ import PageLayout from "../../layouts/PageLayout.astro";
 import PageContent from "../../layouts/PageContent.astro";
 import PostPreviewList from "../../components/PostPreviewList.astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <PageLayout>
-      <Header />
-      <PageContent>
-        <h3>Blog</h3>
-        <p>
-          I use this space to jot down anything that's on my mind, from
-          long-form essays and project write-ups to more digital-garden-y notes
-          and reflections.
-        </p>
-        <p>
-          <PostPreviewList posts={posts} />
-        </p>
-      </PageContent>
-    </PageLayout>
+  <PageLayout>
+    <Header />
+    <PageContent>
+      <h3>Blog</h3>
+      <p>
+        I use this space to jot down anything that's on my mind, from long-form
+        essays and project write-ups to more digital-garden-y notes and
+        reflections.
+      </p>
+      <p>
+        <PostPreviewList posts={posts} />
+      </p>
+    </PageContent>
+  </PageLayout>
 </BaseLayout>

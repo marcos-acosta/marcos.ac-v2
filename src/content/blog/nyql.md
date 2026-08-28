@@ -3,7 +3,7 @@ title: "NyQL: Storing arbitrary data in Apple alarms"
 description: "How I built a schema-driven database on byte-addressed memory backed by Apple alarms"
 pubDate: 'August 22 2026'
 heroImage: '../../assets/nyql/example.png'
-tags: 'random,projects'
+tags: 'projects'
 pinned: true
 ---
 

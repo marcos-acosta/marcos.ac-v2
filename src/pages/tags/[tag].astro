@@ -15,8 +15,8 @@ export async function getStaticPaths() {
     ...new Set(allPosts.map((post) => extractTags(post.data.tags)).flat()),
   ];
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) =>
-      extractTags(post.data.tags).includes(tag)
+    const filteredPosts = allPosts.filter(
+      (post) => extractTags(post.data.tags).includes(tag) && !post.data.draft,
     );
     return {
       params: { tag },
